@@ -30,5 +30,5 @@ How to Use opspark tool to Submit Projects:
 2) Select proper BC session & project
 
 
-How to Access directories & Make Changes:
+How to Access Directories:
 1) type cd <name of directory>
