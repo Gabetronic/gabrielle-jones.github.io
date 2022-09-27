@@ -198,6 +198,20 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
+    //Create a conditional chain that returns a number value:
+    //if the stringOne parameter is equal to the stringTwo parameter, 
+    if(stringOne === stringTwo){
+        //return 0
+        return 0;
+    //else if the stringOne parameter is greater than the stringTwo parameter
+    }else if(stringOne > stringTwo){
+        //return -1
+        return -1;
+    //else, if the stringTwo parameter is greater than the stringTwo parameter
+    }else{
+        //return 1
+        return 1;
+    }
 
 
     // YOUR CODE ABOVE HERE //
@@ -213,6 +227,21 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+
+     //Create a conditional chain that returns a number value, 
+    //if the stringOne parameter is equal to the stringTwo parameter, 
+    if(stringOne === stringTwo){
+        //return 0
+        return 0;
+    //else if the stringTwo parameter is greater than the stringOne parameter
+    }else if(stringOne < stringTwo){
+        //return -1
+        return -1;
+    //else, if the stringOne parameter is greater than the stringTwo parameter
+    }else{
+        //return 1
+        return 1;
+    }
 
 
 

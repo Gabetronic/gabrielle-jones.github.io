@@ -22,7 +22,18 @@
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
     
+    //Initialize an empty array variable
+    let array = [];
+    //Iterate backwards through the input parameter string
+    for(var i = input.length; i >= 0; i--){
+      //push each iteration to the empy array variable
+      array.push(input[i]);
+    }
     
+    //return a new string created by joining the array elements with the .join() method, and use the toLowerCase() method -
+     //if output string should be lower cased
+    return array.join("").toLowerCase();
+
     
     
     // YOUR CODE GOES ABOVE HERE //
