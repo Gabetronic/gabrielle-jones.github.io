@@ -65,7 +65,7 @@ function toDashCase(string) {
 
 /**
  * Given an input String and a single character, return true if the String
- * begins with the character, false otherwise. The Function is case insensitive.
+ * begins with the character, false otherwise. The Function is should be case insensitive.
  *
  * Example:
  *
@@ -75,7 +75,7 @@ function toDashCase(string) {
  * TIP: How can you use Array access to your advantage here? How can you
  *      ensure uppercase and lowercase can be compared equally?
  */
-function beginsWith(string, char) {
+function beginsWith(string, char) { //must be case insensitive
     // YOUR CODE BELOW HERE //
 
     
@@ -85,7 +85,7 @@ function beginsWith(string, char) {
 
 /**
  * Given an input String and a single character, return true if the String
- * ends with the character, false otherwise. The Function is case insensitive.
+ * ends with the character, false otherwise. The Function should be case insensitive.
  *
  * Example:
  *
