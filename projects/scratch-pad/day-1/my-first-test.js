@@ -18,7 +18,8 @@
 function print(value) {
   // YOUR CODE BELOW HERE //
   
-  
+  //Use the console.log() method to log/print the value parameter to the console
+  console.log(value);
   
   // YOUR CODE ABOVE HERE //
 }

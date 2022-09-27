@@ -88,7 +88,16 @@ function toDashCase(string) {
 function beginsWith(string, char) { //must be case insensitive
     // YOUR CODE BELOW HERE //
 
-    
+    //Use a conditional chain & .toLowerCase() to state:
+
+    //if the string parameter begins with the char parameter,
+    if(string[0].toLowerCase() === char.toLowerCase()){
+        //return the Boolean value true
+        return true;
+    //else, return false
+    }else{
+        return false;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -108,6 +117,14 @@ function beginsWith(string, char) { //must be case insensitive
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
 
+    //Use .toLowerCase() & a conditional statement to check,
+    //if the string parameter's last character matches the char parameter,
+    if(string[string.length - 1].toLowerCase() === char.toLowerCase()){
+        //return the Boolean value true
+        return true;
+    }else{
+        return false;
+    }
 
 
     // YOUR CODE ABOVE HERE //
@@ -121,7 +138,8 @@ function endsWith(string, char) {
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //Return the result of concatenating the two string parameters, using the concatenate operator
+    return stringOne + stringTwo;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -138,8 +156,10 @@ function concat(stringOne, stringTwo) {
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    var args = Array.from(arguments);
 
+    var args = Array.from(arguments);
+    //Return strings from the args array joined together, using the .join() method
+    return args.join("");
 
     // YOUR CODE ABOVE HERE //
 }
@@ -156,7 +176,14 @@ function join(stringOne, stringTwo) {
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //Use a conditional chain to determine,
+    //if the stringOne parameter's length is longer than the stringTwo parameter's length,
+    if(stringOne.length > stringTwo.length){
+        return stringOne;
+    //if the stringTwo parameter's length is longer than the stringOne parameter's length,
+    }else if(stringTwo.length > stringOne.length){
+        return stringTwo;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
