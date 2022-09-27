@@ -14,7 +14,9 @@
  */
 function length(string) {
     // YOUR CODE BELOW HERE //
-    
+
+    //return the string parameter's length using the .length property
+    return string.length;
 
 
     // YOUR CODE ABOVE HERE //
@@ -26,7 +28,10 @@ function length(string) {
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
 
-
+    //initialize a new string to point to the string parameter, altered
+    let newString = string.toLowerCase();
+    //return the newString variable
+    return newString;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -37,7 +42,10 @@ function toLowerCase(string) {
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
 
-
+     //initialize a new string to point to the string parameter, altered
+     let newString2 = string.toUpperCase();
+     //return the newString variable
+     return newString2;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -56,9 +64,11 @@ function toUpperCase(string) {
  *      See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Using_global_and_ignore_with_replace()
  */
 function toDashCase(string) {
-    // YOUR CODE BELOW HERE //
-
-
+    // YOUR CODE BELOW HERE // 
+    //Locate each space within the string parameter & replace it with a dash character, using the .replaceAll() method
+    // return the new string in lower case, using the toLowerCase() method
+    return string.replaceAll(" ", "-").toLowerCase();
+    
 
     // YOUR CODE ABOVE HERE //
 }
