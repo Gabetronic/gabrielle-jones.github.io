@@ -38,7 +38,10 @@ function printArrayValuesInReverse(array) {
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
   
-  
+  //Initialize an empty array variable
+  //Iterate through the object parameter with a for-in loop
+  //Push the object's keys into the array variable
+  //return the array
   
   
   // YOUR CODE ABOVE HERE //
@@ -101,7 +104,9 @@ function getObjectLength(object) {
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
   
-  
+  //Initialize an empty array variable
+  //Push the object values into an array using a for-in loop
+  //Loop over the array backwards to print the values in reverse
   
   
   // YOUR CODE ABOVE HERE //
