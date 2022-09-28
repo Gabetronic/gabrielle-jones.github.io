@@ -31,7 +31,7 @@ function fizzBuzz() {
         }else{
             console.log(num);
         }
-        num++;
+    num++;
     }
 
     // YOUR CODE GOES ABOVE HERE //
