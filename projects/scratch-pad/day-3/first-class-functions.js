@@ -14,7 +14,10 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
+    //return a Function that tests ...
+    return function(value){
+        return value > base;
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -42,7 +45,8 @@ function createLessThanFilter(base) {
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+    //return a function that tests if a given string starts with the char parameter
+      //equalize the cases, please
     
     
     // YOUR CODE ABOVE HERE //
