@@ -74,14 +74,14 @@ function isCollection(value) {
  * Given an input value, return the type of the value as a String
  * 
  * Types are one of: 
- *    - "string"
- *    - "array"
- *    - "object"
- *    - "undefined"
- *    - "number"
- *    - "boolean"
- *    - "null"
- *    - "function"
+ *    - "string" *
+ *    - "array" *
+ *    - "object" *
+ *    - "undefined"*
+ *    - "number" *
+ *    - "boolean" *
+ *    - "null"  *
+ *    - "function" *
  *    - "date"
  * 
  * Examples:
@@ -92,8 +92,29 @@ function isCollection(value) {
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+    //Use a conditional chain to return a string that represents the given value
+        //use the typeof operator for primitive data types that erroneously present as objects in JS
+    if(typeof value === "string"){
+        return "string";
+    }else if(typeof value === "number"){
+        return "number";
+    }else if(typeof value === "function"){
+        return "function";
+    }else if(typeof value === "boolean"){
+        return "boolean";
+    }else if(typeof value === "undefined"){
+        return "undefined";
+        //use Array.isArray method to determine if value is an array
+    }else if(Array.isArray(value) === true){
+        return "array";
+        //use    to determine if value is a collection object, null, or Date
+    }else if(Object.prototype.toString.call(value) === "[object Object]"){
+        return "object";
+    }else if(Object.prototype.toString.call(value) === "[object Null]"){
+        return "null";
+    }else if(Object.prototype.toString.call(value) === "[object Date]"){
+        return "date";
+    }
     
     // YOUR CODE ABOVE HERE //
 }
