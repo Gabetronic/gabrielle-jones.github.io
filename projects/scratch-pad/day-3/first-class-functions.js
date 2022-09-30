@@ -131,7 +131,7 @@ function allStringsPass(strings, test) {
     //Iterate over the strings parameter with a for loop
     for(var i = 0; i < strings.length; i++){
         //Use each iteration as a parameter for the test callback function, 
-        //use a conditional to determine if any strings fail the test 
+        //use a conditional to determine if any strings fail the test - this only tests each individual string
         if(test(strings[i]) === false){
             //if any strings fail, return false
             return false;
