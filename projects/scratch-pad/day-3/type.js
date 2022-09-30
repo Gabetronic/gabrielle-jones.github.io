@@ -15,8 +15,14 @@
 function isArray(value) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+    //Use a conditional statement to see if the value parameter is an array
+        //test the value with the Array.isArray() method & the strictly equal operator
+        if(Array.isArray(value) === true){
+            //if true, return true
+            return true;
+        }
+    //else, return false
+    return false;
     
     // YOUR CODE ABOVE HERE //
 }
@@ -31,7 +37,14 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
+
+    if(Object.prototype.toString.call(value) === "[object Object]"){ 
+        return true;
+    }
+    //else, return false
+    return false;
+    //But not, if (typeof item === "object" && !Array.isArray(item) && item !== null   --> ?
+    //This also works: if (value && typeof value === "object" && value.constructor === Object  --> why the value by itself?
     
     
     
@@ -47,7 +60,11 @@ function isObject(value) {
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    if(Object.prototype.toString.call(value) === "[object Object]" || Object.prototype.toString.call(value) === "[object Array]"){ 
+        return true;
+    }
+    //else, return false
+    return false;
     
     
     // YOUR CODE ABOVE HERE //
