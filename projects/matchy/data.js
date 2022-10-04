@@ -25,7 +25,7 @@ var noises = [];
 noises[0] = "bark";
 noises.push("moan");
 noises.unshift("whimper");
-noises[noises.length - 1] = "yowl";
+noises[noises.length] = "yowl";
 console.log(noises.length);
 console.log(noises.length - 1);
 console.log(noises);
