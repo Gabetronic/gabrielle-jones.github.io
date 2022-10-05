@@ -103,8 +103,11 @@ function getRandom(array){
   var random = array[Math.floor(Math.random() * array.length)];
   return random;
 }
-var randomAni = getRandom(animals);
+//function call generates a random index -- meaning an animal object, 
+var randomAni = getRandom(animals); 
+//access the name prop of the random animal object
 var randomName = randomAni.name;
+//push that name into the friends array
 friends.push(randomName);
 console.log(friends);
 
@@ -112,13 +115,6 @@ console.log(friends);
 animals[1].friends = friends;
 console.log(animals);
 
-/**
- *  6. [ ] Using a random index from this function that you just created, get a random animal and add its `name` to `friends`.
- 7. [ ] `console.log` `friends`.
- 8. [ ] Using **bracket notation**, add the `friends` list as a **property** also named `friends` on one of the animals in the `animals` array
- 9. [ ] `console.log` your work.
- 
- */
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
