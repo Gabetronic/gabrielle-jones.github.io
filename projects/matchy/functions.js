@@ -16,10 +16,15 @@
 //function takes in the animals array, & an animal object's name
 function search(array, string){
     //Iterate through the array
-    for(let i = 0; i < array.length; i++){
+    for(var i = 0; i < array.length; i++){
         //return the animal object that matches the string parameter
-        //if there is no match, return null
+        if(array[i].name.toLowerCase() == string.toLowerCase()){
+            return array[i];
+            
+        }
     }
+//if there is no match, return null 
+return null;
 }
 
 
