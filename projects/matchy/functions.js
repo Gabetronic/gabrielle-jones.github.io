@@ -13,7 +13,25 @@
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//function takes in the animals array, & an animal object's name
+function search(array, string){
+    //Iterate through the array
+    for(let i = 0; i < array.length; i++){
+        //return the animal object that matches the string parameter
+        //if there is no match, return null
+    }
+}
 
+
+/**
+ *  
+ 2. Implement a function declaration called `search` that:
+   - Takes a paramater representing an Array of `animals`.
+   - Takes a paramater representing a String, the name of an animal on which to perform a search.
+   - Looks through the `animals` Array, and returns the animal's Object if an animal with that name exists.
+   - Returns `null` if no animal with that name exists
+ 3. Use the search bar at the top of the page to make sure your function works.
+ */
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
