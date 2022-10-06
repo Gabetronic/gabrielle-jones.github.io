@@ -82,23 +82,6 @@ function add(array, object){
 }
 
 
-
-
-
-/*
-## Step 4 - Add
- 1. Write a function declaration called `add` with a signature of `add(animals, animal) { //... }` that:
-   - Takes 2 parameter, an Array of animals, and an Object representing a new animal to be added.
-   - Checks that the animal Object has a `name` property with a length > 0.
-   - Checks that the animal Object has a `species` property with a length > 0.
-   - Has a **unique** name, meaning no other animals have that name.
-   - Adds this new Object to the `animals` Array, **only** if all the other conditions pass.
-   - Make sure it works.
-
-This is called **data validation** and it's extremely important in web development!
-*/
-
-
 /**
  * You did it! You're all done with Matchy!
  */
