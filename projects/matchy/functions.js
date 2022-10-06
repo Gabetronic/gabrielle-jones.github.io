@@ -28,32 +28,75 @@ return null;
 }
 
 
-/**
- *  
- 2. Implement a function declaration called `search` that:
-   - Takes a paramater representing an Array of `animals`.
-   - Takes a paramater representing a String, the name of an animal on which to perform a search.
-   - Looks through the `animals` Array, and returns the animal's Object if an animal with that name exists.
-   - Returns `null` if no animal with that name exists
- 3. Use the search bar at the top of the page to make sure your function works.
- */
-
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-
+function replace(array, string, object){
+    //if an animal.name exists in the array - Iterate through the array
+    for(var i = 0; i < array.length; i++){
+        //find if the string parameter matches a property's name in the array
+        if(array[i].name.toLowerCase() == string.toLowerCase()){
+            //if it does, replace the entire property with the object parameter; else, do nothing
+            array[i] = object;
+        }
+    }
+}
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+function remove(array, string){
+    //Iterate through the array
+    for(var i = 0; i < array.length; i++){
+        //if the string parameter matches a property's name in the array,
+        if(array[i].name.toLowerCase() == string.toLowerCase()){
+            //remove that property from the array
+            array.splice(array[i], 1);
+        }
+    }
+}
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+function add(array, object){
+
+   //if object parameter has both name & species properties with a length > 0,
+    if(object.name.length > 0 && object.species.length > 0){
+        //Iterate through the array parameter
+        for(var i = 0; i < array.length; i++){
+        //and, if the object parameter's name doesn't match any of the array iteration's name properties
+            if(object.name !== array[i].name){
+            //add the object to the array
+                array.push(object);
+            //else, return the array
+            }else{
+                return array;
+            }
+        }
+    }
+}
+
+
+
+
+
+/*
+## Step 4 - Add
+ 1. Write a function declaration called `add` with a signature of `add(animals, animal) { //... }` that:
+   - Takes 2 parameter, an Array of animals, and an Object representing a new animal to be added.
+   - Checks that the animal Object has a `name` property with a length > 0.
+   - Checks that the animal Object has a `species` property with a length > 0.
+   - Has a **unique** name, meaning no other animals have that name.
+   - Adds this new Object to the `animals` Array, **only** if all the other conditions pass.
+   - Make sure it works.
+
+This is called **data validation** and it's extremely important in web development!
+*/
 
 
 /**
