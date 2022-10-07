@@ -129,11 +129,20 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+//Iterate through obj
+    for(var key in object){
+        //If any iteration = [] & [].length > 0, 
+        if(Array.isArray(object[key]) === true && object[key].length > 0){
+            //return 
+        }
+    }
+//If any iteration = [] & [].length > 0, print "there are..."
+//else, print "there are no..."
 }
 
 /*
-QUnit.test("maybeNoises() : Should take an object, if this object has a noises array return them as a string separated by a space, if there are no noises return 'there are no noises'", function(assert){
+Should take an object, if this object has a noises array return them as a string separated by a space, 
+if there are no noises return 'there are no noises'", function(assert){
     assert.equal(maybeNoises({noises:["bark", "woof", "squeak","growl"]}), "bark woof squeak growl");
     assert.equal(maybeNoises({noises: []}), "there are no noises");
     assert.equal(maybeNoises({}), "there are no noises");
