@@ -129,15 +129,21 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-//Iterate through obj
-    for(var key in object){
+//Initialize an empty array variable
+var string = "";
+//Iterate through object
+    //for(var key in object){
         //If any iteration = [] & [].length > 0, 
-        if(Array.isArray(object[key]) === true && object[key].length > 0){
-            //return 
+        if(Array.isArray(object.noises) === true && object.noises.length === 0){
+            //return array as a string seperated by a space
+            //array.push(object[key]);
+            string += object.noises;
+            return array.join(" ");
+            //else, print "there are no noises"
+        }else{
+            console.log("there are no noises");
         }
-    }
-//If any iteration = [] & [].length > 0, print "there are..."
-//else, print "there are no..."
+    //}
 }
 
 /*
