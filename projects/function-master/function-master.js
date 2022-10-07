@@ -75,25 +75,26 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    //Use the charAt method to locate the first indexed character of the string parameter.
+        //Capitalize the first character using the toUpperCase() method
+            //return the capitalized character with the rest of the string parameter using the .splice() method
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 
-
-
- /* 
-Should take a string of one word, and return the word with its first letter capitalized", function(assert){
-    assert.equal(capitalizeWord("greg"), "Greg");
-    assert.equal(capitalizeWord("pumpkin"), "Pumpkin");
-    assert.equal(capitalizeWord("quattuordecillion"), "Quattuordecillion");
-    */
-   
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    var output = string.split(" ");
+    var array = [];
+        //Iterate through the string parameter
+        for(var i = 0; i < output.length; i++){
+            //capitalize that indexed value
+            array.push(output[i].charAt(0).toUpperCase() + output[i].slice(1));
+        }
+    return array.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -101,7 +102,12 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
+//Grab the name property in the object parameter by assigning it to a string variable
+let string = object.name;
 
+//Return that string with the first letter of the name property capitalized, as well as the given strings to return with the object prop 
+ //- use charAt() method, toUpperCase() .slice() to capitalize & operators to attach "Welcome " & "!"
+return "Welcome " + string.charAt(0).toUpperCase() + string.slice(1) + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -148,7 +154,7 @@ function isFriend(name, object) {
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function nonFriends(name, array) {
+function nonFriends(name, arrayOfObjects) {
 
 }
 
