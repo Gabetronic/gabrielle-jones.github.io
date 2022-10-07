@@ -3,7 +3,15 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
+    //initialize an empty array variable
+    let array = [];
+    //Iterate through the object
+    for(var key in object){
+        //push each iteration into the empty array variable
+        array.push(object[key]);  
+    }
+    //return the array
+    return array; 
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +19,18 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+ 
+    //initialize an empty array variable
+    let array = [];
+    //Iterate through the object
+    for(var key in object){
+        //push each iteration into the empty array variable
+        array.push(key);  
+    }
+    //Initialize a string variable to the array - Use the .join method with a space btw the quotation marks to create a string seperating each key with a space
+    let string = array.join(" ");
+    //return the string
+    return string; 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +38,20 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    //initialize an empty array variable
+    let array = [];
+        //Iterate through the object
+        for(var key in object){
+            //Use a conditional to find if each iteration is a string data value
+            if(typeof object[key] === "string"){
+            //if it is a string, push the iteration into the empty array variable
+            array.push(object[key]);  
+            }
+        }
+    //Initialize a string variable to the array - Use the .join method with a space btw the quotation marks to create a string seperating each key with a space
+    let string = array.join(" ");
+    //return the string 
+    return string; 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +59,15 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    //if the collection parameter is an object
+    if(Object.prototype.toString.call(collection) === "[object Object]"){
+        //return a string representing that
+        return "object";
+    //else, if the parameter is an array,
+    }else if(Object.prototype.toString.call(collection) === "[object Array]"){
+        //return a string named "array"
+        return "array";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -38,6 +78,16 @@ function capitalizeWord(string) {
     
 }
 
+
+
+
+ /* 
+Should take a string of one word, and return the word with its first letter capitalized", function(assert){
+    assert.equal(capitalizeWord("greg"), "Greg");
+    assert.equal(capitalizeWord("pumpkin"), "Pumpkin");
+    assert.equal(capitalizeWord("quattuordecillion"), "Quattuordecillion");
+    */
+   
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
