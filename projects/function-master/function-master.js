@@ -137,7 +137,7 @@ var string = "";
         if(Array.isArray(object.noises) === true && object.noises.length === 0){
             //return array as a string seperated by a space
             //array.push(object[key]);
-            string += object.noises;
+            string += object.noises; // how to push this into arr without nesting them???
             return array.join(" ");
             //else, print "there are no noises"
         }else{
