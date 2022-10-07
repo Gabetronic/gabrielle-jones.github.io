@@ -115,7 +115,13 @@ return "Welcome " + string.charAt(0).toUpperCase() + string.slice(1) + "!";
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+    //Grab the values from the object by assigning them to a string variable
+    let nameStr = object.name;
+    let speciesStr = object.species;
 
+    //return the strings, capitalized & attached to the provided output values - use .charAt(), 
+        //.toUpperCase(), .slice(), and operators to attach the provided value " is a "
+    return nameStr.charAt(0).toUpperCase() + nameStr.slice(1) + " is a " + speciesStr.charAt(0).toUpperCase() + speciesStr.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -125,6 +131,13 @@ function profileInfo(object) {
 function maybeNoises(object) {
 
 }
+
+/*
+QUnit.test("maybeNoises() : Should take an object, if this object has a noises array return them as a string separated by a space, if there are no noises return 'there are no noises'", function(assert){
+    assert.equal(maybeNoises({noises:["bark", "woof", "squeak","growl"]}), "bark woof squeak growl");
+    assert.equal(maybeNoises({noises: []}), "there are no noises");
+    assert.equal(maybeNoises({}), "there are no noises");
+  }); */
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
