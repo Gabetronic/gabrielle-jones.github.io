@@ -2,6 +2,8 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+const { first } = require("lodash");
+
 function objectValues(object) {
     //initialize an empty array variable
     let array = [];
@@ -128,23 +130,27 @@ function profileInfo(object) {
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+
+
+
+
 function maybeNoises(object) {
-//Initialize an empty array variable
-var string = "";
-//Iterate through object
-    //for(var key in object){
-        //If any iteration = [] & [].length > 0, 
-        if(Array.isArray(object.noises) === true && object.noises.length === 0){
-            //return array as a string seperated by a space
-            //array.push(object[key]);
-            string += object.noises; // how to push this into arr without nesting them???
-            return array.join(" ");
-            //else, print "there are no noises"
+//Initialize an empty string variable
+var string = ""
+  
+      //Iterate through object parameter
+      for(var key in object){
+          //if the iteration is an array & its length > 0,
+        if(Array.isArray(object[key]) === true && object[key].length > 0){
+              //return the array's props as a string with a space between each noise
+              string += object[key].join(", ");
+              return string;
+        //else, return a string with the phrase provided
         }else{
-            console.log("there are no noises");
-        }
-    //}
-}
+               console.log("there are no noises");
+          }
+      }
+  }
 
 /*
 Should take an object, if this object has a noises array return them as a string separated by a space, 
