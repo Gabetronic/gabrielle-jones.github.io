@@ -16,8 +16,16 @@
  * 3. Hoisting is a JavaScript engine trait that moves, or "compiles," & then reads, or "interprets" both variable & function declarations  
  * at the top of a program's scope before any other code.  Once at the top of the program's scope, a var variable's value will be interpreted 
  * as the undefined data value; its actual value(s) will be read later once the JS engine arrives (the JS engine reads from top to bottom,  
- * left to right) at that particular variable within the rest of the code. 
+ * left to right) at that particular variable within the rest of the code. By hoisting function declarations, their associated function
+ * calls can be executed anywhere in the program, since their initial code has already been interpreted at the top of the program's scope.
  */
+
+/*
+The var keyword precedes variables that are either globally-scoped -- meaning the programming environment 
+ * can access these variables anywhere in the program because they aren't declared within a block of code, or function-scoped -- meaning 
+ * the program reads these variables only within the function they were defined in.
+ */
+//Type /** and the comment format will pop up
 
 
 // 1. declaration //
@@ -36,11 +44,10 @@ console.log(hello); //prints => Hi stranger!
 // Re-assignment allows a variable to change it's initial value(s)
 
 hello = "Hola senorita!"
-let number = 5;
-console.log(hello, number); //prints => Hola senorita! 5
+console.log(hello, number); //prints => Hola senorita! 
 
 // 4. var keyword //
-// The var keyword allows initialized variables to be re-declared & re-assigned
+// The var keyword allows its variables to be re-declared & re-assigned
 
 var outkast = "Andre 3000";
 var outkast; //re-declaration
@@ -50,7 +57,7 @@ outkast = "Big Boi & Andre Benjamin"; //re-assignment
 console.log(outkast); //prints => Big Boi & Andre Benjamin
 
 // 5. let keyword //
-// The let keyword allows initialized variables to be re-assigned, but not re-declared
+// The let keyword allows its variables to only be re-assigned
 
 let fruit = "apples";
 fruit = "bananas" //re-assignment
@@ -59,9 +66,8 @@ console.log(fruit); //prints => bananas
 let fruit; //re-declaration
 console.log(fruit); //prints => SyntaxError: Identifier 'fruit' has already been declared
 
-
 // 6. const keyword //
-// The const keyword only allows a variable to be initialized -- it can never be either re-declared, or re-assigned
+// The const keyword only allows its variable to be initialized
 
 const muhammadAli = "the Greatest";
 muhammadAli = "nope";
@@ -72,7 +78,7 @@ console.log(bandName); //prints => SyntaxError: Missing initializer in const dec
 
 
 // 7. hoisting //
-/* Hoisting causes var variables to be temporarily rendered to the value of undefined, until the initialization is read later. 
+/* Hoisting causes var variables to be temporarily rendered to the value of undefined, until their initialization is read later. 
 Hoisting also allows function calls to be read anywhere in the program.
 */
 
@@ -86,12 +92,3 @@ console.log(greeting); //prints => hi!
 function song(){
     console.log("Please sing a song!")
 }
-
-
-
-/*
-The var keyword precedes variables that are either globally-scoped -- meaning the programming environment 
- * can access these variables anywhere in the program because they aren't declared within a block of code, or function-scoped -- meaning 
- * the program reads these variables only within the function they were defined in.
- */
-//Type /** and the comment format will pop up
