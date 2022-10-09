@@ -21,7 +21,7 @@
  */
 
 /*
-Not sure if variable-specific scope needs to be added....? --
+Not sure if variable-specific scope needs to be added....? -- ask Alex
 The var keyword precedes variables that are either globally-scoped -- meaning the programming environment 
  * can access these variables anywhere in the program because they aren't declared within a block of code, or function-scoped -- meaning 
  * the program reads these variables only within the function they were defined in.
