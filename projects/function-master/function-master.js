@@ -2,7 +2,7 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const { first } = require("lodash");
+//const { first } = require("lodash");
 
 function objectValues(object) {
     //initialize an empty array variable
@@ -130,35 +130,23 @@ function profileInfo(object) {
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-
-
-
-
 function maybeNoises(object) {
 //Initialize an empty string variable
-var string = ""
+//var string = ""
   
-      //Iterate through object parameter
-      for(var key in object){
-          //if the iteration is an array & its length > 0,
-        if(Array.isArray(object[key]) === true && object[key].length > 0){
-              //return the array's props as a string with a space between each noise
-              string += object[key].join(", ");
-              return string;
-        //else, return a string with the phrase provided
-        }else{
-               console.log("there are no noises");
-          }
-      }
-  }
+      //Iterate through object parameter - use a for-in loop
+    for(var key in object){
+          //if the iteration is an array with a key of "noises" & its length > 0, - find the type of prop w/ array.isArray method & 
+            // use length prop to determine if the value's array is > 0
+        if(Array.isArray(object[key]) === true && key === "noises" && object[key].length > 0){
+              //return the array's props as a string with a space between each noise - use .join(" ") to create a string w/ a space btw each noise
+              return object[key].join(" ");
+        }
+    }
+//else, return a string with the phrase provided - return this statement outside of the loop
+return "there are no noises";
+}
 
-/*
-Should take an object, if this object has a noises array return them as a string separated by a space, 
-if there are no noises return 'there are no noises'", function(assert){
-    assert.equal(maybeNoises({noises:["bark", "woof", "squeak","growl"]}), "bark woof squeak growl");
-    assert.equal(maybeNoises({noises: []}), "there are no noises");
-    assert.equal(maybeNoises({}), "there are no noises");
-  }); */
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
