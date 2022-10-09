@@ -14,13 +14,14 @@
  * Let variables can be re-assigned, but not re-declared. Once initialized, constant or const variables can't be re-assoigned or re-declared.
  * 
  * 3. Hoisting is a JavaScript engine trait that moves, or "compiles," & then reads, or "interprets" both variable & function declarations  
- * at the top of a program's scope before any other code.  Once at the top of the program's scope, a var variable's value will be interpreted 
+ * at the top of a program before any other code.  Once at the top of the program, a var variable's value will be interpreted 
  * as the undefined data value; its actual value(s) will be read later once the JS engine arrives (the JS engine reads from top to bottom,  
  * left to right) at that particular variable within the rest of the code. By hoisting function declarations, their associated function
- * calls can be executed anywhere in the program, since their initial code has already been interpreted at the top of the program's scope.
+ * calls can be executed anywhere in the program, since their initial code has already been interpreted at the top of the program.
  */
 
 /*
+Not sure if variable-specific scope needs to be added....? --
 The var keyword precedes variables that are either globally-scoped -- meaning the programming environment 
  * can access these variables anywhere in the program because they aren't declared within a block of code, or function-scoped -- meaning 
  * the program reads these variables only within the function they were defined in.
