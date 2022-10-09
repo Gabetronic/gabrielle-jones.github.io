@@ -10,8 +10,9 @@
  * programmer performs both of the declaration and assignment simultaneously, it is said that they have initialized a variable. 
  * 
  * 2. Var, let and const are keywords required to create variables.  They each have varying traits, but must be written before the actual 
- * variable name itself.  The var keyword creates variables that are either global- or function-scoped, meaning the programming environment 
- * can access var variables anywhere in the program
+ * variable name itself.  The var keyword creates variables that are either globally-scoped -- meaning the programming environment 
+ * can access var variables anywhere in the program, or function-scoped -- meaning the program reads variables defined within a function 
+ * only within that function.
  * 
  */
 
