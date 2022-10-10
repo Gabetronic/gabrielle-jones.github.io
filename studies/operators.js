@@ -12,4 +12,9 @@
  * 
  */
 
-//Type /** and the comment format will pop up
+// 1. assignment operators //
+// 2. arithmetic operators //
+// 3. comparison operators //
+// 4. logical operators //
+// 5. unary operators //
+// 6. ternary operators //
