@@ -7,7 +7,7 @@ var _ = {};
 
 
 /**
-* START OF OUR LIBRARY!
+* START OF OUR FUNCTIONAL LIBRARY!
 * Implement each function below its instructions
 */
 
