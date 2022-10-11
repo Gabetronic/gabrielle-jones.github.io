@@ -1,6 +1,21 @@
 git # gabrielle-jones.github.io
 
-How to Install Projects Using opspark tool:
+# How to Access my-lodown
+1) Click on three lines in top left corner
+2) Click file > open file
+3) Delete everything in dialogue box except -> /workspace/
+4) Click my-lodown > click index.js
+
+# How to Push Code to my-lodown
+1) Make sure your terminal reads /workspace/my-lodown
+2) run git commmands
+
+# How to Access Directories:
+1) type cd <name of directory> 
+2) cd .. = backing into the previous directory
+
+
+# How to Install Projects Using opspark tool:
 1)In terminal, type => code ~/.bashrc
 2)On line 4 of .bashrc file, type => export CHE_PROJECTS_ROOT=/workspace
 3)Exit out of .bashrc file
@@ -14,21 +29,21 @@ How to Install Projects Using opspark tool:
 11) Choose project to install
 
 
-How to Push Work to Github:
+# How to Push Work to Github:
 1) In terminal, type => git add -A
 2) type => git commit -m "project description in quotes"
 3) type => git push
 
 
-How to Use opspark tool to Test Projects:
+# How to Use opspark tool to Test Projects:
 1) In terminal, type => os test
 2) Select proper BC session & project
 
 
-How to Use opspark tool to Submit Projects:
+# How to Use opspark tool to Submit Projects:
 1) In terminal, type => os submit
 2) Select proper BC session & project
 
 
-How to Access Directories:
-1) type cd <name of directory>
+# How to Access Directories:
+1) type cd <name of directory> OR cd ..
