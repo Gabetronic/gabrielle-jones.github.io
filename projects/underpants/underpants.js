@@ -24,7 +24,10 @@ var _ = {}; // Project begins here. Assigned a var called _ & set to an empty ob
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
-//_.identity = function(){}
+_.identity = function(value){ 
+    //return the parameter
+    return value;
+}
 
 
 /** _.typeOf
@@ -47,6 +50,36 @@ var _ = {}; // Project begins here. Assigned a var called _ & set to an empty ob
 * _.typeOf([1,2,3]) -> "array"
 */
 
+_.typeOf = function(value){
+    //returns the type of <value> as a string
+
+    //Use a conditional to determine if the parameter is a string
+    if(typeof value === "string"){
+        //return a string named string
+        return "string";
+    //else if parameter is an array
+    }else if(Array.isArray(value) === true){
+        return "array";
+    //else if parameter is an object
+    }else if(Object.prototype.toString.call(value) === "[object Object]"){
+        return "object";
+    //else if parameter is undefined
+    }else if(typeof value === "undefined"){
+        return "undefined";
+    //else if value is a number
+    }else if(typeof value === "number"){
+        return "number";
+    //else if value is a boolean
+    }else if(typeof value === "boolean"){
+        return "boolean";
+    //else if value is null
+    }else if(Object.prototype.toString.call(value) === "[object Null]"){
+        return "null";
+    //else if value is a function
+    }else{
+        return "function";
+    }
+}
 
 /** _.first
 * Arguments:
@@ -66,6 +99,24 @@ var _ = {}; // Project begins here. Assigned a var called _ & set to an empty ob
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function(array, number){
+    //if, the array parameter is not an array, & if the number parameter is less than zero - Use a conditional, array.isArray method & a logical operator
+    if(Array.isArray(array) === false || number < 0){
+        //return []
+        return [];
+   //else if, the number !== a number value OR(--use logical operator) the num parameter === NaN -- use the Number.isNaN method,
+    }else if(typeof number !== "number" || Number.isNaN(number) === true){
+        //return the 1st indexed element of the array
+        return array[0];
+    //else of tje number parameter is > array's length,
+    }else if(!number > array.length){
+        //return the whole array
+        return array;
+    }else{
+        //return the 1st <number> of indexed array elements -- use .slice method
+        return array.slice(0, number);
+    }
+};
 
 /** _.last
 * Arguments:
@@ -85,6 +136,27 @@ var _ = {}; // Project begins here. Assigned a var called _ & set to an empty ob
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(array, number){
+
+    //if, the array parameter is not an array, & if the number parameter is less than zero - Use a conditional, array.isArray method & a logical operator
+    if(Array.isArray(array) === false || number < 0){
+        //return []
+        return [];
+    //else if, the number parameter isn't a number -- use typeof & comparison operators -- OR(--use logical operator) the parameter is a data value of NaN -- use the Number.isNaN method,
+    }else if(typeof number !== "number" || Number.isNaN(number) === true){
+        //return the 1st indexed element of the array
+        return array[array.length - 1];
+    //else of tje number parameter is > array's length,
+    }else if(number > array.length){
+        //return the whole array
+        return array;
+    }else{
+        //return the last <number> of indexed array elements - use .slice with a negative sign in front of the number parameter
+       return array.slice(-number);
+    }
+};
+
+
 
 /** _.indexOf
 * Arguments:
@@ -102,6 +174,24 @@ var _ = {}; // Project begins here. Assigned a var called _ & set to an empty ob
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(array, value){
+    //initialize an empty array variable
+    let newArr = [];
+    //iterate through array parameter
+    for(let i = 0; i < array.length; i++){
+        //if any array elements match the value parameter, 
+        if(array[i] === value){
+        //push every occurrence of array[i] by its indexed value - use .push method - into the empty array variable
+        newArr.push(i);
+        //return the index of the array's element 
+        return i;
+        }
+    }
+//else, return -1
+return -1;
+}
+
+//** 11 left! ** //
 
 /** _.contains
 * Arguments:
@@ -117,6 +207,12 @@ var _ = {}; // Project begins here. Assigned a var called _ & set to an empty ob
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
+_.contains = function(array, value){
+
+    //If array contains value, return true; if not, return false --- use ternary operator => (return conditon ? expression if true : expression if false) & .includes method
+    return array.includes(value) ? true : false;  
+}
 
 
 /** _.each
