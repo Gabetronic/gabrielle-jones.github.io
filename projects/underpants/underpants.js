@@ -3,7 +3,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-const { arrayOrObject } = require("../function-master/function-master");
+//const { arrayOrObject } = require("../function-master/function-master");
 
 var _ = {}; // Project begins here. Assigned a var called _ & set to an empty obj. 
                 //Each func below will be added to this obj (console.log(_); //=> { _.identity: function(){} })
@@ -24,7 +24,7 @@ var _ = {}; // Project begins here. Assigned a var called _ & set to an empty ob
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
-_.identity = function(){}
+//_.identity = function(){}
 
 
 /** _.typeOf
