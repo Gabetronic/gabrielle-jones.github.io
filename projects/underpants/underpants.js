@@ -3,7 +3,10 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-var _ = {};
+const { arrayOrObject } = require("../function-master/function-master");
+
+var _ = {}; // Project begins here. Assigned a var called _ & set to an empty obj. 
+                //Each func below will be added to this obj (console.log(_); //=> { _.identity: function(){} })
 
 
 /**
@@ -20,6 +23,8 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
+
+_.identity = function(){}
 
 
 /** _.typeOf
@@ -129,6 +134,24 @@ var _ = {};
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
+_.each = function(collection, func){
+
+    //Use conditonal & array.isArray to determine if collection param is an array
+    if(Array.isArray(collection) === true){
+        //For each array element -- iterate through the collection array
+        for(let i = 0; i < collection.length; i++){
+            //call func(element, index, collection) param
+            func(collection[i], i, collection);  //often callback func in a func aren't using all of these parameters
+        }
+    //if not an array, must be an object
+    }else{
+        //iterate through the collection object
+        for(let key in collection){
+            //for each item in the collection, call func(prop's value, it's key, collection)
+            func(collection[key], key, collection);
+        }
+    }
+};
 
 
 /** _.unique
