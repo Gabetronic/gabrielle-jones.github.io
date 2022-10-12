@@ -276,7 +276,7 @@ _.unique = function(array) {
 return outputArr;
 }
 
-            //** 9 left! ** //
+           
 
 /** _.filter
 * Arguments:
@@ -290,8 +290,8 @@ return outputArr;
 *   1) What if <function> returns something other than true or false?
 * Examples:
 *   _.filter([1,2,3,4,5], function(x){return x%2 === 0}) -> [2,4]
-* Extra Credit:
-*   use _.each in your implementation
+*               Extra Credit:
+*                   use _.each in your implementation
 */
 
 _.filter = function(array, func) {
@@ -309,6 +309,7 @@ _.filter = function(array, func) {
 return newArray;
 }
 
+                     //** 8 left! ** //
 
 /** _.reject
 * Arguments:
@@ -322,6 +323,22 @@ return newArray;
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+_.reject = function(array, func){
+    //Create an empty array variable
+    let output = [];
+    //For each - iterate through array
+    for(let i = 0; i < array.length; i++){
+      //call the func on each iteration w/ 3 arguments
+        // if result of func call === false,
+      if(func(array[i], i, array) === false){
+        //push that iteration into the empty array variable
+        output.push(array[i]);
+      }
+    }
+//return a new array w/ each element that fails the test
+return output;
+}
 
 
 /** _.partition
