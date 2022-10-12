@@ -309,7 +309,7 @@ _.filter = function(array, func) {
 return newArray;
 }
 
-                     //** 8 left! ** //
+                     
 
 /** _.reject
 * Arguments:
@@ -340,6 +340,8 @@ _.reject = function(array, func){
 return output;
 }
 
+
+                    //** 6 left! ** //
 
 /** _.partition
 * Arguments:
