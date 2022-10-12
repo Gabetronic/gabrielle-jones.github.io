@@ -364,6 +364,27 @@ _.each = function(collection, func){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, func){
+    //determine if func isn't provided
+    //think of func as a function-scoped variable - so if it doesn't havve a value, it will show undefined
+    if(func === undefined){
+        //determine if collection is an arr
+    //else, the func exists w/ params, so continue forward
+    }else{
+        //determine if collection is arr
+        if(){
+            //iterate through collection
+             //does every value of the collection return true when passed to the func?
+             for(){
+                if(func(collection[i], i, collection)){
+                    
+                }
+             }
+        }
+
+    }
+     
+}
 
 /** _.some
 * Arguments:
