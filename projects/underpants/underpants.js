@@ -372,12 +372,12 @@ _.every = function(collection, func){
     //else, the func exists w/ params, so continue forward
     }else{
         //determine if collection is arr
-        if(){
+        if(code){
             //iterate through collection
              //does every value of the collection return true when passed to the func?
-             for(){
+             for(var i = 0; i < array.length; i++){
                 if(func(collection[i], i, collection)){
-                    
+
                 }
              }
         }
