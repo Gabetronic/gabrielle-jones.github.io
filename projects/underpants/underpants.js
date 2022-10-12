@@ -251,7 +251,7 @@ _.each = function(collection, func){
 
 
 
-                                        //** 10 left! ** //
+                                        
 /** _.unique
 * Arguments:
 *   1) An array
@@ -261,7 +261,22 @@ _.each = function(collection, func){
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+_.unique = function(array) {
+    //Create an empty array variable
+    let outputArr = [];
+    //Iterate through array parameter
+    for (let i = 0; i < array.length; i++) {
+      //If an iteration tested with .indexOf returns -1 (i.e. has no occurrences),
+      if(outputArr.indexOf(array[i]) === -1){
+        //push that iteration into the new array
+        outputArr.push(array[i]);
+      }
+    }
+//return output array variable 
+return outputArr;
+}
 
+            //** 9 left! ** //
 
 /** _.filter
 * Arguments:
@@ -278,6 +293,21 @@ _.each = function(collection, func){
 * Extra Credit:
 *   use _.each in your implementation
 */
+
+_.filter = function(array, func) {
+    //Create an empty array variable
+    let newArray = [];
+    //For each - iterate thru array
+    for(let i = 0; i < array.length; i++){
+      //if func call tested on each iteration = true,
+      if(func(array[i], i, array) === true){
+        //push that iteration into the empty array variable
+        newArray.push(array[i]);
+      }
+    }
+//return output array
+return newArray;
+}
 
 
 /** _.reject
