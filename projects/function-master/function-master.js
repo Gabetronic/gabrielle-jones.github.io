@@ -154,59 +154,63 @@ return "there are no noises";
 
 function hasWord(string, word) {
 
+//turn string into an array - Use .split method & initialize the result of splitting the string parameter to a new array
+let array = string.split(" ");
+//Iterate through the array variable
+for(let i = 0; i < array.length; i++){
+    //Use a conditional to determine if the word parameter = the iteration -- use toLowerCase to equalize the characters
+    if(word.toLowerCase() === array[i].toLowerCase()){
+        //if yes, return true
+        return true;
+    }
 }
-/*
- * { QUnit.test("hasWord() : Should take a string of words and a word and return true if <word> is in <string of words>, otherwise return false.", function(assert){
-      var data = "This is a super awesome string of words";
-      assert.strictEqual(hasWord(data, "awesome"), true);
-      assert.strictEqual(hasWord(data, "words"), true);
-      assert.strictEqual(hasWord(data, "turtle"), false);
-    });} name 
- 
- */
+//else, return false
+return false;
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+//Iterate through object
+    for(let key in object){
+        //access the array prop inside the object & add the name parameter to its array - use .push() method
+        object[key].push(name);
+    }
+//return the object
+return object;
 }
-
-
-/*  
-QUnit.test("addFriend() : Should take a name and an object and add the name to the object's friends array then return the object", function(assert){
-    assert.deepEqual(addFriend("lester", {friends:[]}), {friends:["lester"]});
-    assert.deepEqual(addFriend("jimmy", {friends:["bobby","jones"]}), {friends:["bobby", "jones", "jimmy"]});
-  });
-  */
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function isFriend(name, object) {
-
-}
-
-/*
-QUnit.test("isFriend() : Should take a name and an object and return true if <name> is a friend of <object> and false otherwise", function(assert){
-      assert.equal(isFriend("jimmy",{friends:["bobby", "ralf"]}), false);
-      assert.equal(isFriend("ralf",{friends:["bobby", "ralf"]}), true);
-      assert.equal(isFriend("chuck",{}), false);
-    });
-*/
+function isFriend(name, object){
+    //Iterate through object
+    for (let key in object){
+      //Use a conditional to determine if name parameter exists in object's friends array --- use .includes method
+      if (object[key].includes(name)){
+        //return true,
+        return true;
+      }
+    }
+    //Else, return false
+    return false;
+  }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, arrayOfObjects) {
-
+//if name != in object's friends arr,
 }
 
 /*
-QUnit.test("nonFriends() : Should take a name and a list of people, and return a list of all the names that <name> is not friends with", function(assert){
+QUnit.test("nonFriends() : Should take a name and a list of people, and return a list of all the names that <name> is not friends with", 
+function(assert){
       var data = [
         {name: "Jimmy", friends:["Sara", "Liza"]},
         {name: "Bob", friends:[]},
