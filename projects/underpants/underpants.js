@@ -341,7 +341,7 @@ return output;
 }
 
 
-                    //** 6 left! ** //
+                    //** 5 left! -  see ES6 Lecture Recording (date= 10.12.22) for demo of .reduce ** //
 
 /** _.partition
 * Arguments:
@@ -361,6 +361,30 @@ return output;
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+_.partition = function(array, func){
+//Create 3 empty array variables - 2 for the sub-arrays, 1 for the parent array
+let output = [];
+let arr = [];
+let arr2 = [];
+//Declare a variable for holding the function call
+let callResult;
+    //Iterate through array
+    for(let i = 0; i < array.length; i++){
+        //Call func w/ given args & assign to the declared variable
+       callResult = func(array[i], i, array);
+        //Use a conditional to determine if the result of the function call is a truthy or falsey value:
+         //for each iteration that's true, push it the 1st sub-array
+        if(callResult === true){ 
+            arr.push(array[i]);
+        //for falsy iterations, push to the other sub-array
+        }else if(callResult === false){
+            arr2.push(array[i]);
+        }
+    }
+//Push both sub-arrays to the parent array & return the parent array    
+output.push(arr, arr2);
+return output;
+}
 
 
 /** _.map
