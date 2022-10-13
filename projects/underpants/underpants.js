@@ -341,7 +341,6 @@ return output;
 }
 
 
-                    //** 5 left! -  see ES6 Lecture Recording (date= 10.12.22) for demo of .reduce ** //
 
 /** _.partition
 * Arguments:
@@ -403,6 +402,28 @@ return output;
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, func){
+//Create an empty array variables to hold function call results
+let output= [];
+      //Use conditonal & array.isArray to determine if collection param is an array,
+    if(Array.isArray(collection) === true){
+        //For each array element -- iterate through the collection array
+        for(let i = 0; i < collection.length; i++){
+            //push function call to the empty array variable
+            output.push(func(collection[i], i, collection));
+        }
+    //if not an array, must be an object
+    }else{
+        //iterate through the collection object
+        for(let key in collection){
+            //push function call to the empty array variable
+            output.push(func(collection[key], key, collection));
+        }
+    }
+return output;
+}
+
+//** 3 left! -  see ES6 Lecture Recording (date= 10.12.22) for demo of .reduce ** //
 
 /** _.pluck
 * Arguments:
@@ -415,6 +436,16 @@ return output;
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+_.pluck = function(arrayOfObjs, prop){
+//Declare an output variable hold values to be returned
+let result;
+    //Assign output variable to the map function -- params should be the collection, and a func that returns each obj's value aka "prop"
+    result = _.map(arrayOfObjs, function(object){ //this is func declaration --- use params, not args
+            return object[prop];
+    });
+//return output variable    
+return result;
+}
 
 /** _.every
 * Arguments:
