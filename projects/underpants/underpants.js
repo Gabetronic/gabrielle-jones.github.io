@@ -423,7 +423,7 @@ let output= [];
 return output;
 }
 
-//** 3 left! -  see ES6 Lecture Recording (date= 10.12.22) for demo of .reduce ** //
+
 
 /** _.pluck
 * Arguments:
@@ -446,6 +446,9 @@ let result;
 //return output variable    
 return result;
 }
+
+
+
 
 /** _.every
 * Arguments:
@@ -470,25 +473,61 @@ return result;
 
 _.every = function(collection, func){
     //determine if func isn't provided
-    //think of func as a function-scoped variable - so if it doesn't havve a value, it will show undefined
+    //"think of func as a function-scoped variable - so if it doesn't have a value, it will show undefined"
     if(func === undefined){
-        //determine if collection is an arr
-    //else, the func exists w/ params, so continue forward
-    }else{
-        //determine if collection is arr
-        if(code){
-            //iterate through collection
-             //does every value of the collection return true when passed to the func?
-             for(var i = 0; i < array.length; i++){
-                if(func(collection[i], i, collection)){
-
-                }
-             }
+      //determine if collection is an arr
+      if(Array.isArray(collection) === true){
+        //For each array element -- iterate through the collection array
+        for(let i = 0; i < collection.length; i++){
+          //Determine if each element is a falsy value
+          if(collection[i] === false){
+            //return false
+            return false;
+          }
         }
-
+        //Else, it must be an object
+      }else{
+        //iterate through the collection object
+        for(let key in collection){
+          //For each iteration, determine if it's a falsy value
+          if(collection[i] === false){
+            //return false
+            return false;
+          }
+        }
+      }
+      //else, the func exists w/ params, so continue forward
+    }else{
+      //determine if collection is an arr
+      if(Array.isArray(collection) === true){
+        //For each array element -- iterate through the collection array
+        for(let i = 0; i < collection.length; i++){
+          //Determine if each element is a falsy value
+          if(func(collection[i], i, collection) === false){
+            //return false
+            return false;
+          }
+        }
+    //Else, it must be an object
+      }else{
+        //iterate through the collection object
+        for(let key in collection){
+          //For each iteration, determine if it's a falsy value
+          if(func(collection[key], key, collection) === false){
+            //return false
+            return false;
+          }
+        }
+      }
     }
-     
+//If all else fails, it must be true
+  return true;
 }
+
+
+
+//** 2 left! -  see ES6 Lecture Recording (date= 10.12.22) for demo of .reduce ** //
+
 
 /** _.some
 * Arguments:
