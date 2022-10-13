@@ -18,7 +18,7 @@ var _ = require('underbar');
  *
  *    npm start --prefix ./gabrielle-jones.github.io/projects/let-s-get-functional
  *
- *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
+ *    
  */
 
 var maleCount = function(array) {
