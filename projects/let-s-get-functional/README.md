@@ -25,7 +25,7 @@ const _ = require('lodown-oliviasaborush');
  - Implement the functions outlined below, using your `lodown` library
  - Code and test your solutions in `index.js`
  - Data is available to you in an Array stored in the variable `customers`
- - To test your solutions run Type cd .. down the gitpod/workspace to check your work, then run `npm start --prefix ./<YOUR_GITHUB_FOLDER/projects/let-s-get-functional` in your terminal  
+ - To test your solutions run Type cd .. down the gitpod/workspace to check your work, then run `npm start --prefix ./gabrielle-jones.github.io/projects/let-s-get-functional` in your terminal  
  - Use HOFs please
  
  _IMPORTANT_: Make sure you replace `<YOUR_GITHUB_FOLDER` with your actual github folder in your workspace.

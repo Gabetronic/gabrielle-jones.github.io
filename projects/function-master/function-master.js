@@ -234,6 +234,7 @@ function updateObject(object, key, value) {
 //if no key exists, add a key/value pair
 if(!object[key]){
     object["key"] = value;
+//else, iterate through obj & update the value of said key
 }else{
     for(let key in object){
         if(key === key){
@@ -242,7 +243,7 @@ if(!object[key]){
         }
     }
 }
-//else, iterate through obj & update the value of said key
+
 }
 
 /* 
