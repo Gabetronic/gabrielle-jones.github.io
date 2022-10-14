@@ -229,60 +229,44 @@ function(assert){
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-//update a key's value w/ the params provided.  if no key already exists, create the new prop pair
-
-//if no key exists, add a key/value pair
-if(!object[key]){
-    object["key"] = value;
-//else, iterate through obj & update the value of said key
-}else{
-    for(let key in object){
-        if(key === key){
-            object[key] = value;
-
-        }
-    }
-}
-
-}
-
-/* 
-QUnit.test("updateObject() : Should take an object, a key and a value. Should update the property <key> on 
-<object> with new <value>. If <key> does not exist on <object> create it.", 
-function(assert){
-    var data = {a: "one", b: "two", "hokey": false};
-    assert.deepEqual(updateObject(data, "b", "three"), {a:"one", b:"three", hokey: false});
-    var data = {a: "one", b: "two", "hokey": false};
-    assert.deepEqual(updateObject(data, "ponies", "yes"), {a:"one", b:"two", hokey: false, ponies: "yes"});
-    var data = {a: "one", b: "two", "hokey": false};
-    assert.deepEqual(updateObject(data, "a", Infinity), {a:Infinity, b:"two", hokey: false});
-  });
-  */
+    //loop through the object parameter - rename key as prop to avoid confusion
+     for (let prop in object) {
+       //if the key param doesn't exist, add the key/value pair params
+       if (prop !== key) {
+         object[key] = value;
+         //else, if key param matches a key in the object param,  
+       } else {
+         if (prop === key) {
+           //update the value of that key/value pair with the value param
+           object[prop] = value;
+         }
+       }
+     }
+     //return object
+     return object;
+   }
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+    //remove any obj props that are in the arr of strings:
+    //iterate through both params
+    for(let i = 0; i < array.length; i++){
+      for(let key in object){
+        //if array iteration = object's key
+        if(array[i] === key){
+          //delete the prop from the object
+          delete object[key];  
+        }
+      }
+    }
+  //return object
+  return object;
+  }
 
-}
-/*
-  QUnit.test("removeProperties() : Should take an object and an array of strings. Should remove any 
-  properties on <object> that are listed in <array>", function(assert){
-      var data = {a: "one", b: "two", "hokey": false};
-      removeProperties(data, ["a","hokey"]);
-      assert.deepEqual(data, {b: "two"});
-
-      var data = {a: "one", b: "two", "hokey": false};
-      removeProperties(data, ["b"])
-      assert.deepEqual(data, {a: "one", "hokey": false});
-
-      var data = {a: "one", b: "two", hokey: false};
-      removeProperties(data, []);
-      assert.deepEqual(data, {a: "one", b: "two", "hokey": false});
-    });
-    */
-
+  
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
