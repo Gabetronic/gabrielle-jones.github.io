@@ -31,7 +31,7 @@ var oldestCustomer;
 
 var youngestCustomer;
 
-var averageBalance;
+var averageBalance; // convert string to a num 1st - use RegEx, rubular.com
 
 var firstLetterCount;
 
