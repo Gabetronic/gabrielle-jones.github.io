@@ -273,6 +273,18 @@ function removeProperties(object, array) {
 
 function dedup(array) {
 
+    //Create an empty array variable
+    let outputArr = [];
+    //Iterate through array parameter
+    for (let i = 0; i < array.length; i++) {
+      //If an iteration tested with .indexOf returns -1 (i.e. has no occurrences),
+      if(outputArr.indexOf(array[i]) === -1){
+        //push that iteration into the new array
+        outputArr.push(array[i]);
+      }
+    }
+//return output array variable 
+return outputArr;
 }
 /*
  QUnit.test( "dedup() : Should take an array and return an array with all the duplicates removed", 
