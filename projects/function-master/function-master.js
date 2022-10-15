@@ -208,21 +208,21 @@ function nonFriends(name, arrayOfObjects) {
 //if name != in object's friends arr,
 }
 
-/*
-QUnit.test("nonFriends() : Should take a name and a list of people, and return a list of all the names 
-that <name> is not friends with", 
-function(assert){
-      var data = [
-        {name: "Jimmy", friends:["Sara", "Liza"]},
-        {name: "Bob", friends:[]},
-        {name: "Liza", friends: ["Jimmy"]},
-        {name: "Sara", friends: ["Jimmy"]}
-      ];
-      assert.deepEqual(nonFriends("Jimmy", data), ["Bob"]);
-      assert.deepEqual(nonFriends("Bob", data), ["Jimmy", "Liza", "Sara"]);
-      assert.deepEqual(nonFriends("Sara", data), ["Bob","Liza"]);
-    });
-    */
+function nonFriends(name, array) { //arrayOfObjects
+  //return an arr of all nonfriends:
+  //Create empty array variable to return all nonFriends
+    let output = [];
+    //iterate through array param
+    for(let i = 0; i < array.length; i++){
+      //if friends list doesn't include name param & object's name !== the name param
+      if(array[i].friends.includes(name) === false && array[i].name !== name){
+        //push d.name to new arr
+        output.push(array[i].name);
+      }
+    }
+    //return arr
+    return output;
+  }
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
