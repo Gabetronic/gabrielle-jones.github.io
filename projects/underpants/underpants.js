@@ -550,6 +550,9 @@ _.every = function(collection, func){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, func){
+
+}
 
 /** _.reduce
 * Arguments:
@@ -569,15 +572,12 @@ _.every = function(collection, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-/*
-_.reduce = function((func, seed, array){
-  let result;
-  //Determine if seed value is 0 or undefined
-  if(seed === undefined){
 
-  }else if(seed === value){
-    result += current;
-    } 
+/*
+_.reduce = function(array, func, seed){
+
+}
+ */
 
 
 
@@ -594,6 +594,12 @@ _.reduce = function((func, seed, array){
 *   var data = {a:"one"};
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
+*/
+
+/*
+_.extend(object, object2){
+
+}
 */
 
 //////////////////////////////////////////////////////////////////////
