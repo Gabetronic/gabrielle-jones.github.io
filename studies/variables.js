@@ -26,8 +26,6 @@ The var keyword precedes variables that are either globally-scoped -- meaning th
  * can access these variables anywhere in the program because they aren't declared within a block of code, or function-scoped -- meaning 
  * the program reads these variables only within the function they were defined in.
  */
-//Type /** and the comment format will pop up
-
 
 // 1. declaration //
 // Declaring a variable leaves the JS engine to interpret the variable as undefined. 

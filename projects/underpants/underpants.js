@@ -569,7 +569,7 @@ _.every = function(collection, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-
+/*
 _.reduce = function((func, seed, array){
   let result;
   //Determine if seed value is 0 or undefined
