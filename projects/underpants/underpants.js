@@ -634,11 +634,15 @@ _.reduce = function(array, func, seed){
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-/*
-_.extend(object, object2){
-
+_.extend = function(object, ...objects){
+  //instructions: copy props from args.length to args[0], then return updated arg[0] //
+  //Assign a new variable to object method,
+    //use Object.assign & spread operator to add rest of object params to target object
+  let copy = Object.assign(object, ...objects);
+  //return new variable
+  return copy;
 }
-*/
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
