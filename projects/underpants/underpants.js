@@ -525,10 +525,6 @@ _.every = function(collection, func){
 }
 
 
-
-//** 2 left! -  see ES6 Lecture Recording (date= 10.12.22) for demo of .reduce ** //
-
-
 /** _.some
 * Arguments:
 *   1) A collection
@@ -541,7 +537,7 @@ _.every = function(collection, func){
 *        current value, current key, <collection>
 *   2) If the return value of calling <function> is true for at least one element, return true
 *   3) If it is false for all elements, return false
-*   4) If <function> is not provided return true if at least one element is truthy, otherwise return false
+*   4) If <function> is not provided, return true if at least one element is truthy, otherwise return false
 * Edge Cases:
 *   1) what if <function> doesn't return a boolean
 *   2) What if <function> is not given?
@@ -550,9 +546,50 @@ _.every = function(collection, func){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-_.some = function(collection, func){
-
+_.some = function(collection, test) {
+  //if test parameter is a function, 
+  if (typeof test === "function") {
+    //and collection = an object
+    if (collection instanceof Object) {
+      //iterate using a for-in loop, and
+      for (var key in collection) {
+        //if function call returns true,
+        if (test(collection[key], key, collection) === true) {
+          //this code block returns true
+          return true;
+        }
+      }
+    } else { //else, collection = an array; do the same thing as before but use a for loop & different test parameters
+      for (var i = 0; i < collection.length; i++) {
+        if (test(collection[i], i, collection) === true) {
+          return true;
+        }
+      }
+    }
+  }
+  //if test = undefined, 
+  if (test === undefined) {
+    //iterate through the collection(array or object) to see if at least 1 iteration is true,
+    if (collection instanceof Object) {
+      for (var i in collection) {
+        if (collection[i] == true) {
+          //if it is, return true
+          return true;
+        }
+      }
+    } else {
+      for (var i = 0; i < collection.length; i++) {
+        if (collection[i] == true) {
+          return true;
+        }
+      }
+    }
+  }
+  //if all other conditions fail, return false
+  return false;
 }
+
+
 
 /** _.reduce
 * Arguments:
@@ -580,6 +617,7 @@ _.reduce = function(array, func, seed){
  */
 
 
+//** 1 left! -  see ES6 Lecture Recording (date= 10.12.22) for demo of .reduce ** //
 
 /** _.extend
 * Arguments:
