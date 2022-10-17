@@ -3,4 +3,9 @@
  * 
  */
 
-//Type /** and the comment format will pop up
+
+/**
+ * Concepts - 
+ * 1.  w/ operators
+ * 2. w/ string methods
+ */
