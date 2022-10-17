@@ -108,7 +108,7 @@ _.first = function(array, number){
     }else if(typeof number !== "number" || Number.isNaN(number) === true){
         //return the 1st indexed element of the array
         return array[0];
-    //else of tje number parameter is > array's length,
+    //else if the number parameter is > array's length,
     }else if(!number > array.length){
         //return the whole array
         return array;
@@ -146,7 +146,7 @@ _.last = function(array, number){
     }else if(typeof number !== "number" || Number.isNaN(number) === true){
         //return the 1st indexed element of the array
         return array[array.length - 1];
-    //else of tje number parameter is > array's length,
+    //else if the number parameter is > array's length,
     }else if(number > array.length){
         //return the whole array
         return array;
@@ -360,6 +360,7 @@ return output;
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+
 _.partition = function(array, func){
 //Create 3 empty array variables - 2 for the sub-arrays, 1 for the parent array
 let output = [];
@@ -384,6 +385,7 @@ let callResult;
 output.push(arr, arr2);
 return output;
 }
+
 
 
 /** _.map

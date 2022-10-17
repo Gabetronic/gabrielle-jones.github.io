@@ -1,5 +1,14 @@
 git # gabrielle-jones.github.io
 
+
+
+
+
+
+
+
+
+
 # How to Access my-lodown
 1) Click on three lines in top left corner
 2) Click file > open file
