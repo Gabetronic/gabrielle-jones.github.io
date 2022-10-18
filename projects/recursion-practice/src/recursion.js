@@ -73,17 +73,34 @@ var isEven = function(n) {
 
 
 // 5. Sum all integers below a given integer.
-// sumBelow(10); // 45
+// sumBelow(10); // 45 - do not sum input param!
 // sumBelow(7); // 21
 
-var sumBelow = function(n) {
+function sumBelow(n){
+  let sum;
+  //if n = 1, stop counting --- base
+  if(n === 0){ //(n === 1 || n === -1)  /////
+    //return n
+    return 0;
+    //if n is a positive num, 
+  }else if(n > 0){
+    // return (n-1) + the (iteration - 1) // if n=4, ret 3+(2)
+    return n - 1 + sumBelow(n - 1);
+    //if n is a negative num,
+  }else if(n < 0){
+    //add 1 to n instead
+    return n + 1 + sumBelow(n + 1);
   
-};
+  }  
+}
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
 };
+
+
+
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
