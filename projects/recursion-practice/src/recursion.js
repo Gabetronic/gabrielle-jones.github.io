@@ -24,6 +24,7 @@ var factorial = function(n) {
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
+
 var sum = function(array, arr = 0 ) {
 
 //base - when array's length is 0, return the default param.
@@ -34,9 +35,6 @@ if(array.length === 0){
 arr += array[0];
 //after updating arr, return func w/ transformed array (use .slice to slice off array[0]) + default param updated
 return sum(array.slice(1), arr);
-
-
-
 };
 
 
@@ -49,24 +47,37 @@ var arraySum = function(array) {
 // 4. Check if a number is even.
 //should return a boolean,
 // should evaluate positive & neg #s
+
 var isEven = function(n) {
-  //base: 
-  if(n === 0){
+  //base - what's the stopping condition?  reaching 0 or 1
+  //recursion -- how are you updating n? subtracting 2 from n
+
+  //if number is 0, it's even so,
+  if(n === 0){ 
+    //return true
     return true;
-  }else if(n < 0 && n > -1){
+    //if number is 1, it's odd so,
+  }else if(n === 1){
+    //return false
     return false;
-  }else if(n > 0 && n < 1){
-    return false;
+    //if the number is greater than 0, 
+  }else if(n > 0){
+    //iterate w/ each iteration subtract 2 til it reaches 0 or 1,
+    return isEven(n - 2);
+    //else, if n is negative, 
+  }else{
+    //start over with that negative num
+    return isEven(-n);
   }
-  
-  //recursion: --how are you updating n?
-  return isEven(n - 2);
 };
+
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
+
 var sumBelow = function(n) {
+  
 };
 
 // 6. Get the integers in range (x, y).
