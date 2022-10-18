@@ -4,21 +4,63 @@
 // denoted by n!, is the product of all positive integers less than or equal to n.
 // Example:  5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5);  // 120
+
 var factorial = function(n) {
+  //base: if iteration reaches 0, stop at 1 (b/c factorial stops at 1, not 0)
+  if(n === 0){
+    return 1;
+  }
+
+  //recursion: As long as n is not hitting a negative num, 
+  if(n >= 1){
+    //iterate the func's param - 1, & multiply by the new param
+    return n * factorial(n - 1);
+    //if n dips below 0, return null
+  }else if(n <= 0){
+    return null;
+  }
+   
 };
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
-var sum = function(array) {
+var sum = function(array, arr = 0 ) {
+
+//base - when array's length is 0, return the default param.
+if(array.length === 0){
+  return arr;
+}
+//recursion - how to update arr? use operator w/ each iteration to add to arr
+arr += array[0];
+//after updating arr, return func w/ transformed array (use .slice to slice off array[0]) + default param updated
+return sum(array.slice(1), arr);
+
+
+
 };
+
 
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
 };
 
+
 // 4. Check if a number is even.
+//should return a boolean,
+// should evaluate positive & neg #s
 var isEven = function(n) {
+  //base: 
+  if(n === 0){
+    return true;
+  }else if(n < 0 && n > -1){
+    return false;
+  }else if(n > 0 && n < 1){
+    return false;
+  }
+  
+  //recursion: --how are you updating n?
+  return isEven(n - 2);
 };
 
 // 5. Sum all integers below a given integer.
