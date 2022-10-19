@@ -79,12 +79,12 @@ var isEven = function(n) {
 function sumBelow(n){
   let sum;
   //if n = 1, stop counting --- base
-  if(n === 0){ //(n === 1 || n === -1)  /////
+  if(n === 0){ 
     //return n
     return 0;
     //if n is a positive num, 
   }else if(n > 0){
-    // return (n-1) + the (iteration - 1) // if n=4, ret 3+(2)
+    // return (n-1) + the (iteration - 1) 
     return n - 1 + sumBelow(n - 1);
     //if n is a negative num,
   }else if(n < 0){
@@ -96,10 +96,25 @@ function sumBelow(n){
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
-};
 
+// should accept neg integers
+//should be ok w/ a x being larger than y & vice versa
+//should return an arr or an empty arr if x = y
 
+var range = function(x, y, arr = []) {
+  //base -- if [], return arr || where (8, 12), if 8 === (9-1), ret arr || where (12, 8), if 12 === (11 + 1), ret arr
+  if(x === y - 1 || x === y + 1 || x === y){ 
+    return arr;
+  //recursion 
+  }else if(x < y){
+    arr.push(x + 1); //(8, 12) => [(8 + 1)]
+    return arr.concat(range(x + 1, y)); // [8 + 1].concat(range(9, 12)), [9, 10].concat(range(10, 12)), etc.
+  
+  }else if(x > y){
+    arr.push(x - 1); //(12, 8)=> [11]
+    return arr.concat(range(x - 1, y)); // [11].concat(range((11 - 1), 8))...
+  }
+}
 
 
 // 7. Compute the exponent of a number.
