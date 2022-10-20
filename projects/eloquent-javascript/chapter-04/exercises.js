@@ -34,17 +34,48 @@ function reverseArrayInPlace() {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
+function arrayToList(array) {  //see Oct. 19 video if you need help
+  let rest = null; 
 
+  for(let i = ){ //how should you iterate???
+    rest = {}; 
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(list, output = []) {
+//don't know how nested this list is, so use recursion.  Outputs a complex data type, so use a def. param
 
+//base --
+if(list.rest === null){
+  //something goes here
+  return output;
 }
+//recursion --
+output.push(list.value);
+
+/* first iteration:
+list.value === null // false
+output.push(list.value);
+return listToArray(list.rest & output) -- b/c list.rest holds the next list.value
+*/
+
+
+//func call 
+return listToArray(list.rest, output);
+}
+/*
+list = {
+  value: 1,
+    rest: {
+      value: 2,
+      rest: null
+    }
+}
+*/
 
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
