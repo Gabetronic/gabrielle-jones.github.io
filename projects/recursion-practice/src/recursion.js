@@ -134,9 +134,18 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+//base
+  if(string === ""){
+    return "";
+  }else{
 
-  
-};
+//recursion -- 
+//.substring takes everything btw its params, so start at 1 index w/ no ending index. string.charAt(0) holds the 0-indexed item in the string
+// => reverse("ello") + "H".  Keeps running til there's nothing left for substring to grab onto
+return reverse(string.substring(1)) + string.charAt(0);
+  }
+}
+
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
@@ -154,6 +163,7 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
+  // x
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
