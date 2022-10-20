@@ -53,12 +53,15 @@ var oldestCustomer = (array) => {
     }
   }
 
-var youngestCustomer;
+//var youngestCustomer;
 /*### 4: `youngestCustomer`
  - **Objective**: Find the youngest customer's name
  - **Input**: `Array`
  - **Output**: `String`
  - **Constraints**:*/
+
+ var youngestCustomer = customers.filter(customer => 
+  customer.age >= customer.age).map(customer => customer.name).console.log(youngestCustomer[0].toString());
 
 var averageBalance; // convert string to a num 1st - use RegEx, rubular.com
 /*### 5: `averageBalance`
