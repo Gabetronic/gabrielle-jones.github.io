@@ -27,8 +27,8 @@ var maleCount = function(array) {
 
 var femaleCount;
 
-var oldestCustomer;
-/*
+
+/*### 3: `oldestCustomer`
 - **Objective**: Find the oldest customer's name
 - **Input**: `Array`
 - **Output**: `String`
@@ -53,15 +53,30 @@ var oldestCustomer = (array) => {
     }
   }
 
-//var youngestCustomer;
+
 /*### 4: `youngestCustomer`
  - **Objective**: Find the youngest customer's name
  - **Input**: `Array`
  - **Output**: `String`
  - **Constraints**:*/
 
- var youngestCustomer = customers.filter(customer => 
-  customer.age >= customer.age).map(customer => customer.name).console.log(youngestCustomer[0].toString());
+ var youngestCustomer = function(customers){
+  //Initialize a variable to a func call -- use Math object & spread operator to determine the youngest customer's age.Used .map to this to return the age.
+  let youngest = Math.min(...customers.map(function(customer){
+      return customer.age;
+  }));
+  //if new variable(youngest age) === customer's age (used .filter to find this), return that customer's name by transforming the arr from age to name(i.e. use .map)
+  let name = customers.filter(function(customer){
+      return youngest === customer.age; 
+  }).map(function(customer){
+      return customer.name;
+  });
+  
+  //Use .toString() to return the name as a string
+  return name.toString();
+  }
+
+  
 
 var averageBalance; // convert string to a num 1st - use RegEx, rubular.com
 /*### 5: `averageBalance`
@@ -91,12 +106,49 @@ var friendsCount;
  - **Output**: `Array`
  - **Constraints**:*/
 
-var topThreeTags;
+
 /*### 9: `topThreeTags`
  - **Objective**: Find the three most common tags among all customers' associated tags
  - **Input**: `Array`
  - **Output**: `Array`
  - **Constraints**:*/
+
+ var topThreeTags = function(cxs) { //customer = cx, hence cxs
+
+  //Use .reduce to get all tags
+    let tags = _.reduce(cxs, function(output, cx) { 
+  //Create an empty array variable to hold tags
+    let arr = cx.tags;
+    
+  // Use .each to see if a value exists for each key; if yes, add to output variable, if no, create the tally
+    _.each(arr, function(tag) {
+      if(output[tag]){ 
+        output[tag]++;
+      }else{
+        output[tag] = 1; 
+      }
+    });
+  //Return output tally
+    return output;  
+    }, {});
+//Put tags in an empty array -- used Object.entries method
+let arr2 = [];
+arr2 = Object.entries(tags);
+//Use .sort to find most used tags && sort by tally, not by name
+let ofSorts = arr2.sort(function(a, b) {
+  return b[1] - a[1];
+  });
+//Create variable to hold sliced top 3 key/value paris
+let arr3 = ofSorts.slice(0, 3);  
+// Remove the tally from arr3 to leave only the tag names -- push names to a new empty arr variable
+let topThree = [];
+for(var i = 0; i < lastArr.length; i++){
+  topThree.push(arr3[i][0]);
+}
+//return result
+return topThree;
+};
+
 
 var genderCount;
 /*### 10: `genderCount`
