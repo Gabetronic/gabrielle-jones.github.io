@@ -54,17 +54,23 @@ function drawChessboard(num, string = ""){
 //Initialize an empty string variable
 //let string = "";
   
-//Create 2 loops - one for the spaces, & one for the symbol
+  //Create 2 loops to check the size of each grid space,
   for(let i = 0; i < num; i++){
     for(let j = 0; j < num; j++){
+      //if space is even,
       if((i + j) % 2 === 0){
+      //add a space to the string
       string += " ";
+      //if it's odd, 
       }else{
+        //add a symbol
         string += "#";
       }
     }
+  //add a special char to the string
   string += "\n";
   }
+  //print the string
   console.log(string);
 }
 
