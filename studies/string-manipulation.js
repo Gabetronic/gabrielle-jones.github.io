@@ -20,37 +20,26 @@ result += "!";
 console.log(result); //=> This is an example!
 
 // 2. methods that transform characters in strings //
-// Concat has the same effect as the concat and assignment operator combo.
+// .Concat() has the same effect as the concatenation and assignment operator combo.
 
-// Substr and substring both use their arguments to grab a portion of a string: substr's arguments reference a starting position and 
-// the specified number of characters to return; substring's arguments reference indices, and return the characters between them.
+// 3. .Substr() and .substring() //
+// Both use their arguments to grab a portion of a string: .substr()'s arguments reference a starting position 
+// and the specified number of characters to return; .substring()'s arguments reference indices, and return the characters between them.
 
-// Slice
+// 4. .Slice() //       
+// .Slice does the same thing as .substring(), but it can take in negative indices.
 
-/*
-Transformation:
-.concat()
-.substr(a, b)
-.substring(a, b) - b  
-.slice()
+// 5. .Split() and .join() //
+// .Split() splits a string into a set of substrings and deposits them into an array; .join() does the opposite. Depending on the
+// the argument, thes two methods can split a string with characters or spaces.
+
+// 6. .Replace() //
+
+// 7. .toUpperCase() and .toLowerCase() //
+
+// 8. .Trim() //
 
 
-Transformation of Characters:
-.toUpperCase() & .toLowerCase()
-.trim()
-.replace(c, v)
 
-Search:
-.includes(c)
-.search()
-.charAt(index#)
-.indexOf() & .lastIndexOf()
-.startsWith() & .endsWith()
-
-Array/String Transformation:
-.split(" ")
-.join("")
-
-*/
 
 
