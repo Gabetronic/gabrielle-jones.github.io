@@ -78,12 +78,30 @@ var oldestCustomer = (array) => {
 
   
 
-var averageBalance; // convert string to a num 1st - use RegEx, rubular.com
+
 /*### 5: `averageBalance`
  - **Objective**: Find the average balance of all customers
  - **Input**: `Array`
  - **Output**: `Number`
  - **Constraints**:*/
+
+ var averageBalance = averages.reduce(function(acc, current, index, array){
+//access each obj's balance
+let balances;
+let res
+  for(let i = 0; i < array.length; i ++){
+    balances = array[i].balance.toNumber();
+    //convert all balances from strings to nums
+  }
+  let result = balances / balances.length;
+
+  return result;
+//reduce all balances
+//push result to seed value
+ }, 0);
+
+   // convert string to a num 1st - use Number()
+
 
 var firstLetterCount;
 /*### 6: `firstLetterCount`
