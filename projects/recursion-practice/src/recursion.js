@@ -200,10 +200,7 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 
-//should return an array where each index is a letter of the string 
-
-var compareStr = function(str1, str2) { //use an empty array as a default param for the return arra
-
+var compareStr = function(str1, str2) {
 // base - 
   //if length of both is 0, return true 
   if(str1.length === 0 && str2.length === 0){ 
