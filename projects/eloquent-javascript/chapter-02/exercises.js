@@ -2,17 +2,20 @@
 ////////////////////////////////////////////////////////////////////////////////
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-/*
-function triangles() {
-      //make 7 func calls to log a triangle: used a for loop and length prop
-    //starting position = empty string variable,
+
+function triangles(num) {
+//make an unspecified # of func calls to log a triangle: used a for loop and length prop:
+  //Created a string variable initialized to a symbol
+  let string = "#";
+  //starting position = index variable initialized to 0,
     //stopping position = when the string's length <= a given num param
-    //iteration =  add a string to the existing string
-    /*
-  for(let string = "#"; string.length <= 5; string += "#"){
+     //iteration =  add a string to the existing string
+  for(let i = 0; string.length <= num; string += "#"){
+    //print string
     console.log(string);
   }
-}*/
+
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
@@ -22,8 +25,8 @@ function fizzBuzz() {
   
     //Initialize a variable to 1
     let num = 1;
-    //use a while loop to iterate over a range of numbers (1 - 100)
-    while(num <= 100){
+    //use a while loop to iterate over a range of numbers (1 - 15)
+    while(num <= 15){
         //use a conditional chain to print each number to the console, with the following exceptions,
         //print "FizzBuzz" for every number that's a multiple of 3 & 5
         if(num % 3 == 0 && num % 5 == 0){
@@ -46,8 +49,23 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
-
+function drawChessboard(num, string = ""){
+  //create a string that = square grid (any input num) of spaces & #, using \n to seperate lines.  
+//Initialize an empty string variable
+//let string = "";
+  
+//Create 2 loops - one for the spaces, & one for the symbol
+  for(let i = 0; i < num; i++){
+    for(let j = 0; j < num; j++){
+      if((i + j) % 2 === 0){
+      string += " ";
+      }else{
+        string += "#";
+      }
+    }
+  string += "\n";
+  }
+  console.log(string);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
