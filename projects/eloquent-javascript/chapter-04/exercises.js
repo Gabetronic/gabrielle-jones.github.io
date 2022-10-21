@@ -98,9 +98,42 @@ function nth() {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
+function deepEqual(x, y) {
+//If invoking the args, this f(x) will be able to determine if the data deeply/strictly equals each other aka does the work of the strictly equals operator:
 
+//determine if both x & y aren't objs
+if(typeof x !== "object" && typeof y !== "object"){ //if they aren't objects, they must be simple data types: how do you determine if data IS NOT an opj ...!typeof doesn't work
+  return x === y;
 }
+//determine if either x or y isn't an obj
+if(typeof x !== "object" && typeof y !== "object"){
+  return false; 
+}
+
+//Now, determine if values inside the objs are ===; create arrs of each obj's keys
+let xKeys = Object.keys(x);
+let yKeys = Object.keys(y);
+
+//determine if the length of the obj.keys arrs are equal
+if(xKeys.length === y.Keys.length){
+  return false;
+}
+  //determine if each key matches each other - iterate through the keys arrs
+  for(let i = 0; i < xKeys.length; i++){
+    if(!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[yKeys[i]])){ ////invoke the func itself on the value of the prop to see if each key pairs with the right value
+      return false;
+    }
+  }
+  return true;
+}
+  
+console.log(deepEqual[2, 3]); // => true
+console.log(deepEqual({a: 1, b: 2},{a: 1, b: 2})); // => true
+// invoke deepEqual
+  //x = {a: 1, b: 2}, y = {a: 1, b: 2}
+    //diff lengths? =>
+      //for loop: does yKeys includes {"a"} // => false; !deepEqual x[xKeys[i]] i.e. does the key in xKeys pair with the value in x?// 
+                                                                    // = object[key] aka the object's value
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
