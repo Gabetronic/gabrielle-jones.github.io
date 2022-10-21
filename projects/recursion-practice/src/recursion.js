@@ -149,7 +149,20 @@ return reverse(string.substring(1)) + string.charAt(0);
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-  
+
+  let copy = string.trim().toLowerCase();
+//base -- if 1 or 0 char left, then it's true,
+      //if stringCopy.length <= 1
+    if (copy.length <= 1){
+      //return true
+      return true;
+    //if the first char of string isn't equal to the last char,
+    }else if(copy[0] !== copy[copy.length - 1]){
+      //return false
+      return false;
+    }
+  //recursion - invoke the func with 2 char sliced off the ends of the string & repeat til only 1 char left
+    return palindrome(string.slice(1, -1));
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -159,6 +172,7 @@ var palindrome = function(string) {
 // modulo(22,6) // 4
 var modulo = function(x, y) {
 };
+
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
@@ -185,8 +199,25 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
-var compareStr = function(str1, str2) {
+
+//should return an array where each index is a letter of the string 
+
+var compareStr = function(str1, str2) { //use an empty array as a default param for the return arra
+
+// base - 
+  //if length of both is 0, return true 
+  if(str1.length === 0 && str2.length === 0){ 
+      return true;
+   //else if both strings's first index chars !== equal, ret false 
+  }else if(str1[0] !== str2[0]){ 
+    return false;
+//recursion -- 
+  //else if both strings's first index chars are equal,
+  }else if(str1[0] === str2[0]){ 
+    return compareStr(str1.slice(1), str2.slice(1)); //cut off first index char of each string & start over
+  }
 };
+
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
