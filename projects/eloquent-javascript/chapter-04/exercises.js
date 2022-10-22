@@ -2,31 +2,66 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
-
+function range(x, y, def = 1) {  //add default param of 1 to determine the movement btw the range
+//Initialize an empty array variable
+let array = [];
+//If default param > 0,
+  if(def > 0){
+    //Determine which param is greater,
+    if(x > y){ 
+      //Iterate in reverse,
+      for(let i = x; i >= y; i += def){
+        //push each iteration into the array
+        array.push(i); 
+      }
+    }else if(x < y){ 
+      //Else, iterate forwards, & push result to array
+      for(var i = x; i <= y; i += def){
+        array.push(i);
+      }
+    }
+  }
+//return array
+return array;  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
-
-}
+function sum(arr){
+  //Create a variable assigned to 0
+  let sum = 0;
+  //Iterate through array param, 
+  for(let i = 0; i < arr.length; i++){
+    //add each array iteration(num) to the previous tally inside the sum variable
+    sum += arr[i];
+  }
+  //return variable;
+  return sum;
+  }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
-
+function reverseArray(array){  
+//Iterate in reverse and push the result into a new array variable -- aka use a pure f(x) to reverse:
+let newA = [];
+  for(var i = array.length - 1; i >= 0; i--){
+    newA.push(array[i]);
+  }
+  return newA;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 function reverseArrayInPlace() {
+//Iterate in reverse, destructively:
+
 
 }
 
