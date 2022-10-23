@@ -88,19 +88,18 @@ var oldestCustomer = (array) => {
  var averageBalance = averages.reduce(function(acc, current, index, array){
 //access each obj's balance
 let balances;
-let res
   for(let i = 0; i < array.length; i ++){
     balances = array[i].balance.toNumber();
     //convert all balances from strings to nums
   }
-  let result = balances / balances.length;
-
-  return result;
 //reduce all balances
 //push result to seed value
+let result = balances / balances.length;
+
+return result;
+
  }, 0);
 
-   // convert string to a num 1st - use Number()
 
 
 var firstLetterCount;
