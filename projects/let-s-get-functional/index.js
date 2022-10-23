@@ -59,71 +59,55 @@ return tally;
 return tally;  
 };
 
-/*### 3: `oldestCustomer`
-- **Objective**: Find the oldest customer's name
-- **Input**: `Array`
-- **Output**: `String`
-- **Constraints**:*/
-
-var oldestCustomer = (array) => {
-    //use .filter to return an arr of every array[i].age
-      //initialize a new variable to a .filter func call
-    let old = customers.filter((customer) => {
-      //return all of the customer's ages in an array
-      return array.age;
-    });
-    //initialize a new variable to a .sort function call
-    let age = old.sort();
-    //Iterate through array, 
-    for (let i = 0; i < array.length; i++) {
-      //if the last element in the age variable = a customer's age
-      if (age[age.length - 1] === array[i].age) {
-        //log that customer's name
-        console.log(array[i].name);
-      }
-    }
-  }
-
- var youngestCustomer = function(customers){
+var oldestCustomer = (customers) => {
   //Initialize a variable to a func call -- use Math object & spread operator to determine the youngest customer's age.Used .map to this to return the age.
-  let youngest = Math.min(...customers.map(function(customer){
+  let oldest = Math.max(...customers.map(function(customer){
       return customer.age;
   }));
-  //if new variable(youngest age) === customer's age (used .filter to find this), return that customer's name by transforming the arr from age to name(i.e. use .map)
+    //if new variable(oldest age) === customer's age (used .filter to find this), return that customer's name by transforming the arr from age to name(i.e. use .map)
   let name = customers.filter(function(customer){
-      return youngest === customer.age; 
+    return oldest === customer.age; 
   }).map(function(customer){
       return customer.name;
   });
+    
+//Use .toString() to return the name as a string
+return name.toString();
+}
+
+var youngestCustomer = function(customers){
+  //Initialize a variable to a Math.max func call to find oldest age, & it also takes in .map func to return oldest customer age
+  let youngest = Math.min(...customers.map(function(customer){
+    return customer.age;
+  }));
+  //Use .filter to match youngest age to customer's age, 
+  let name = customers.filter(function(customer){
+    return youngest === customer.age; 
+  //Use .map to return that customer's name
+  }).map(function(customer){
+    return customer.name;
+  });
   
-  //Use .toString() to return the name as a string
-  return name.toString();
-  }
-
-  
+//Use .toString() to return the name as a string
+return name.toString();
+}
 
 
-/*### 5: `averageBalance`
- - **Objective**: Find the average balance of all customers
- - **Input**: `Array`
- - **Output**: `Number`
- - **Constraints**:*/
-
- var averageBalance = (customers) => {
-  let averages = customers.reduce(function(acc, current, index, array){
-  //access each obj's balance
-  let balances;
-  let bals;
-    for(let i = 0; i < array.length; i ++){
-      //convert all balances from strings to nums
-      bals = array[i].balance;
-      balances = bals.toNumber();  //error msg: <> not a func
-    }
-  //reduce all balances
-  //push result to seed value
-  let result = balances / balances.length;
-  }, 0);
-return result;
+var averageBalance = (customers) => {
+  //Initialize a variable that adds each customer's balance to an accumulator variable (using .reduce):
+  let average = customers.reduce((acc, customer, index, array) => {
+  //Initialize a variable that converts the balance value from a string with non-numerical chars to a string with just nums
+  let conversion = customer.balance.slice(1).split(",").join("");
+  //Convert the numerical string to numbers inside the conversion variable -- use Number() Constructor  
+  let num = Number(conversion);
+  // Add together each balance to the accumulator variable
+  acc += num;
+  //return the total bal
+  return acc;
+}, 0);
+ //Find the average balance by dividing the result of the func call in average variable by the total # of customers
+  //total # -> use .length 
+ return average / customers.length;
 }
 
 
