@@ -1,13 +1,13 @@
 git # gabrielle-jones.github.io
 
 
-
-
-
-
-
-
-
+# How to test your work in L.G.F. 
+1) Run the following command in your terminal:
+    npm start --prefix ./gabrielle-jones.github.io/projects/let-s-get-functional
+ 
+# How to re-install my-lodown back into your workspace
+1) In terminal: type cd .. until you reach gitpod/workspace/
+2) Type: git clone https://github.com/Gabetronic/my-lodown.git
 
 # How to Access my-lodown
 1) Click on three lines in top left corner

@@ -85,20 +85,21 @@ var oldestCustomer = (array) => {
  - **Output**: `Number`
  - **Constraints**:*/
 
- var averageBalance = averages.reduce(function(acc, current, index, array){
-//access each obj's balance
-let balances;
-  for(let i = 0; i < array.length; i ++){
-    balances = array[i].balance.toNumber();
-    //convert all balances from strings to nums
-  }
-//reduce all balances
-//push result to seed value
-let result = balances / balances.length;
-
+ var averageBalance = (customers) => {
+  let averages = customers.reduce(function(acc, current, index, array){
+  //access each obj's balance
+  let balances;
+    for(let i = 0; i < array.length; i ++){
+      //convert all balances from strings to nums
+      balances = array[i].balance.toNumber();
+    }
+  //reduce all balances
+  //push result to seed value
+  let result = balances / balances.length;
+  }, 0);
 return result;
+}
 
- }, 0);
 
 
 
