@@ -113,26 +113,56 @@ var averageBalance = (customers) => {
 
 
 
-var firstLetterCount;
-/*### 6: `firstLetterCount`
- - **Objective**: Find how many customer's names begin with a given letter
- - **Input**: `Array`, `Letter`
- - **Output**: `Number`
- - **Constraints**:*/
+var firstLetterCount = (array, letter) => {
+  //iterate over array input to grab customer's first name's first letter & match it to the letter input ==> equalize case plz:
+    //use .filter 
+    let matches = array.filter((value, index, array) => {
+      if(value.name[0].toLowerCase() === letter.toLowerCase()){
+        return value.name; //[]
+      }
+    //for every cx match, add a tally of 1 to an acc variable
+      //use .reduce
+    }).reduce((acc, current, index, array) => {
+        if(/*value.name*/current){
+          acc += 1;
+        }
+      //return acc
+      return acc;
+    }, 0);
+    //return that num
+    return matches;
+  };
 
-var friendFirstLetterCount;
-/*### 7: `friendFirstLetterCount`
- - **Objective**: Find how many friends of a given customer have names that start with a given letter
- - **Input**: `Array`, `Customer`, `Letter`
- - **Output**: `Number`
- - **Constraints**:*/
 
-var friendsCount;
-/*### 8: `friendsCount`
- - **Objective**: Find the customers' names that have a given customer's name in their friends list
- - **Input**: `Array`, `Name`
- - **Output**: `Array`
- - **Constraints**:*/
+var friendFirstLetterCount = function(array, customer, letter){
+  //Create output variable & set to 0
+  let output = 0;
+  //Use .each(forEach) to iterate over every customer in customers arr,
+   _.each(array, function(element){
+    //if customer.name = customer param,
+    if(element.name === customer){   
+      //Iterate over the customer's friends array, &
+      for(var i = 0; i < element.friends.length; i++){
+        //if a friend's first name[0] = the letter param
+        if(element.friends[i].name[0].toLowerCase() === letter.toLowerCase()){
+          //add to the output tally
+          output++;
+        }
+      }
+    }
+  });
+//return output
+return output; 
+};
+  
+var friendsCount = (array, name) => {   //"find the cx's names that have a given cx's name in their friends list":
+//Initialize a variable to .pluck to "extract a list of a given prop", that being the friends list array
+  //Filter through the friends array to find any( use .some() ) instance of list names that match the name param 
+let count = _.pluck(_.filter(array, element =>_.some(element.friends, friend =>
+  friend.name === name)), "name");
+//return count 
+return count;
+};
 
 
  var topThreeTags = function(cxs) { //customer = cx, hence cxs
@@ -172,19 +202,27 @@ return topThree;
 };
 
 
-var genderCount;
-/*### 10: `genderCount`
- - **Objective**: Create a summary of genders, the output should be:
-```javascript
-{
-    male: 3,
-    female: 4,
-    non-binary: 1
-}
-```
- - **Input**: `Array`
- - **Output**: `Object`
- - **Constraints**: Use `reduce`*/
+var genderCount = (customers) => {
+  //Initialize an empty obj variable
+  let tallyObj = {}; 
+  //create a variable to hold the result of calling the reduce func:
+  let genderTrouble = customers.reduce((tallyObj, customer) => {
+    //if customer's gender exists, 
+    if( tallyObj[customer.gender]){
+      //add 1 to the tally
+      tallyObj[customer.gender] += 1;
+    //else -- 
+    }else{
+      //create the customer's gender
+      tallyObj[customer.gender] = 1;
+    }
+  //return obj variable 
+  return tallyObj;   
+  }, {});
+//return the result
+return genderTrouble;
+};
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
