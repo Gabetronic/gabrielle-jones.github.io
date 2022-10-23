@@ -43,16 +43,13 @@ git # gabrielle-jones.github.io
 2) type => git commit -m "project description in quotes"
 3) type => git push
 
-
 # How to Use opspark tool to Test Projects:
 1) In terminal, type => os test
 2) Select proper BC session & project
 
-
 # How to Use opspark tool to Submit Projects:
 1) In terminal, type => os submit
 2) Select proper BC session & project
-
 
 # How to Access Directories:
 1) type cd <name of directory> OR cd ..

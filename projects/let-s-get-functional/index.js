@@ -21,12 +21,43 @@ var _ = require('underbar');
  *    
  */
 
-var maleCount = function(array) {
 
+
+/////EVERYTHING W/ INSTRUCTIONS IS NOT DONE!
+
+ var maleCount = (array) => {
+  //Declare a variable to hold the intended output 
+  let sum;
+  //Initialize a variable to the filter method,
+  let tally = array.filter(function(value, index, array){
+    //if value.gender = male, return it
+    if(value.gender === "male"){
+      return value.gender;
+    };
+  //chain the reduce method to the variable to count and return the sum of all values filtered as "male"
+  }).reduce((sum, value, index, array) => {
+    return sum += 1;
+  }, 0);
+//return the tally variable
+return tally;  
 };
 
-var femaleCount;
-
+ var femaleCount = (array) => {
+  //Declare a variable to hold the intended output 
+  let sum;
+  //Initialize a variable to the filter method,
+  let tally = array.filter(function(value, index, array){
+    //if value.gender = female, return it
+    if(value.gender === "female"){
+      return value.gender;
+    };
+  //chain the reduce method to the variable to count and return the sum of all values filtered as "female"
+  }).reduce((sum, value, index, array) => {
+    return sum += 1;
+  }, 0);
+//return the result of these func calls
+return tally;  
+};
 
 /*### 3: `oldestCustomer`
 - **Objective**: Find the oldest customer's name
@@ -37,9 +68,9 @@ var femaleCount;
 var oldestCustomer = (array) => {
     //use .filter to return an arr of every array[i].age
       //initialize a new variable to a .filter func call
-    let old = _.filter(array, function(array) {
+    let old = customers.filter((customer) => {
       //return all of the customer's ages in an array
-      return array[i].age;
+      return array.age;
     });
     //initialize a new variable to a .sort function call
     let age = old.sort();
@@ -52,13 +83,6 @@ var oldestCustomer = (array) => {
       }
     }
   }
-
-
-/*### 4: `youngestCustomer`
- - **Objective**: Find the youngest customer's name
- - **Input**: `Array`
- - **Output**: `String`
- - **Constraints**:*/
 
  var youngestCustomer = function(customers){
   //Initialize a variable to a func call -- use Math object & spread operator to determine the youngest customer's age.Used .map to this to return the age.
@@ -89,9 +113,11 @@ var oldestCustomer = (array) => {
   let averages = customers.reduce(function(acc, current, index, array){
   //access each obj's balance
   let balances;
+  let bals;
     for(let i = 0; i < array.length; i ++){
       //convert all balances from strings to nums
-      balances = array[i].balance.toNumber();
+      bals = array[i].balance;
+      balances = bals.toNumber();  //error msg: <> not a func
     }
   //reduce all balances
   //push result to seed value
@@ -125,12 +151,6 @@ var friendsCount;
  - **Constraints**:*/
 
 
-/*### 9: `topThreeTags`
- - **Objective**: Find the three most common tags among all customers' associated tags
- - **Input**: `Array`
- - **Output**: `Array`
- - **Constraints**:*/
-
  var topThreeTags = function(cxs) { //customer = cx, hence cxs
 
   //Use .reduce to get all tags
@@ -160,7 +180,7 @@ let ofSorts = arr2.sort(function(a, b) {
 let arr3 = ofSorts.slice(0, 3);  
 // Remove the tally from arr3 to leave only the tag names -- push names to a new empty arr variable
 let topThree = [];
-for(var i = 0; i < lastArr.length; i++){
+for(var i = 0; i < arr3.length; i++){
   topThree.push(arr3[i][0]);
 }
 //return result
