@@ -48,7 +48,7 @@ function sum(arr){
 function reverseArray(array){  
 //Iterate in reverse and push the result into a new array variable -- aka use a pure f(x) to reverse:
 let newA = [];
-  for(var i = array.length - 1; i >= 0; i--){
+  for(let i = array.length - 1; i >= 0; i--){
     newA.push(array[i]);
   }
   return newA;
@@ -59,8 +59,14 @@ let newA = [];
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
+function reverseArrayInPlace(array) {
 //Iterate in reverse, destructively:
+
+//iterate forward, 
+for(let i = 0; i < array.length; i++){
+  //splice the iteration & replace it with the last element of the array by using .pop()
+  array.splice(i, 0, array.pop());
+}
 
 
 }
@@ -68,15 +74,19 @@ function reverseArrayInPlace() {
 ////////////////////////////////////////////////////////////////////////////////
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-/*
-function arrayToList(array) {  //see Oct. 19 video if you need help
-  let rest = null; 
 
-  for(let i = ){ //how should you iterate???
-    rest = {}; 
+//Array of items => "list" of nested objs
+function arrayToList(array) {
+  //create a rest value and initialize to null.
+  let rest = null;
+  //Then, iteration backwards, to
+  for(var i = array.length -1; i >= 0; i--){
+  //add an array to the list
+    rest = {value: array[i], rest: rest};
   }
-}
-*/
+  //return the list
+  return rest;
+  }
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
@@ -87,7 +97,9 @@ function listToArray(list, output = []) {
 
 //base --
 if(list.rest === null){
-  //something goes here
+  //push the next value to the arr
+  output.push(list.value);
+  //once done, return output array
   return output;
 }
 //recursion --
@@ -117,16 +129,29 @@ list = {
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-
+function prepend(value, list) {
+//this f(x) should "insert value into list at first position": ret an obj w/ a value that points to the rest of the list
+  return {value, rest: list}; 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
+function nth(list, num) {
 
+  //base -- stop if list doesn't exist,
+  if(!list){ 
+    //return undefined
+    return undefined; 
+  // or else if, num = first value
+  }else if(num === 0){
+    return list.value;
+   
+//recursion - iterate until nth value is found
+  }else{
+    return nth(list.rest, num - 1);
+  } 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -141,7 +166,7 @@ if(typeof x !== "object" && typeof y !== "object"){ //if they aren't objects, th
   return x === y;
 }
 //determine if either x or y isn't an obj
-if(typeof x !== "object" && typeof y !== "object"){
+if(typeof x !== "object" || typeof y !== "object"){
   return false; 
 }
 
@@ -150,7 +175,7 @@ let xKeys = Object.keys(x);
 let yKeys = Object.keys(y);
 
 //determine if the length of the obj.keys arrs are equal
-if(xKeys.length === y.Keys.length){
+if(xKeys.length !== yKeys.length){
   return false;
 }
   //determine if each key matches each other - iterate through the keys arrs
@@ -161,7 +186,7 @@ if(xKeys.length === y.Keys.length){
   }
   return true;
 }
-  
+/*  
 console.log(deepEqual[2, 3]); // => true
 console.log(deepEqual({a: 1, b: 2},{a: 1, b: 2})); // => true
 // invoke deepEqual
@@ -169,7 +194,7 @@ console.log(deepEqual({a: 1, b: 2},{a: 1, b: 2})); // => true
     //diff lengths? =>
       //for loop: does yKeys includes {"a"} // => false; !deepEqual x[xKeys[i]] i.e. does the key in xKeys pair with the value in x?// 
                                                                     // = object[key] aka the object's value
-
+*/
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
