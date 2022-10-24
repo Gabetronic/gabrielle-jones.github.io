@@ -35,6 +35,7 @@ console.log(result); //=> This is an example!
 
 // 6. .Replace() //
 
+
 // 7. .toUpperCase() and .toLowerCase() //
 
 // 8. .Trim() //
