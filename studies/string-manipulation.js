@@ -19,26 +19,31 @@ let result = string2 + string; //=> This is an example
 result += "!";
 console.log(result); //=> This is an example!
 
-// 2. methods that transform characters in strings //
-// .Concat() has the same effect as the concatenation and assignment operator combo.
+// 2. .concat() //
+// Has the same effect as the concatenation and assignment operator combo.
+result = string.concat(string2); //=> This is an example
 
-// 3. .Substr() and .substring() //
-// Both use their arguments to grab a portion of a string: .substr()'s arguments reference a starting position 
-// and the specified number of characters to return; .substring()'s arguments reference indices, and return the characters between them.
+// 3. methods that grab a portion of a string //
+// .substring()'s parameters reference a starting & ending index; the method grabs all the characters between those indices
+let substringExample = result.substring(0, 4); //=> This
 
-// 4. .Slice() //       
-// .Slice does the same thing as .substring(), but it can take in negative indices.
+// .slice() has the same logic as .substring, but it can also take in negative indices.
+let sliceExample = result.slice(-3, 6); //=> 
+
+
 
 // 5. .Split() and .join() //
 // .Split() splits a string into a set of substrings and deposits them into an array; .join() does the opposite. Depending on the
 // the argument, thes two methods can split a string with characters or spaces.
 
-// 6. .Replace() //
+// 6. .replace() //
 
 
 // 7. .toUpperCase() and .toLowerCase() //
+// Both of these methods change the case of any alphabetical characters within the string
 
-// 8. .Trim() //
+// 8. .trim() //
+// Trim will take out all whitespace that exists before and after the string's text
 
 
 
