@@ -32,7 +32,6 @@ function noParameters(){
 // Once declared, a function can be used by invoking, or calling it -- function call syntax includes:
 // functionName( //optional arguments passed into the function );
 returnANumber(8); // prints=> 8
-
 noParameters(); // prints=> Flying Lotus
 
 // 4. function expression //
@@ -63,22 +62,20 @@ function song(string) {
         }
     lyric();
 }
-
 song(lady); // prints=> Sheena is a punk rocker now.
 
 // Global variables, including parent scoped variables cannot access local, or child scoped variables.
 let globalAge = 35; //global variable
 
 function intro(){
-  let parentAge = 37; //local, parent variable
+  let parentAge = 32; //local, parent variable
   console.log(parentAge += childAge); //prints => ReferenceError:childAge is not defined
    function intro2(){
-    let childAge = 32; //local, child variable
+    let childAge = 37; //local, child variable
     console.log(`She is ${childAge}`);
    }
   intro2();
 };
-
 console.log(globalAge += childAge); //prints => ReferenceError:childAge is not defined
 intro();
 
