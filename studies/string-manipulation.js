@@ -15,9 +15,9 @@
 // The concatenation and assignment operators combined allow you to combine strings
 let string = "example";
 let string2 = "This is an ";
-let result = string2 + string; //=> This is an example
+let result = string2 + string; //prints => This is an example
 result += "!";
-console.log(result); //=> This is an example!
+console.log(result); //prints => This is an example!
 
 // 2. concat() //
 // Has the same effect as the concatenation and assignment operator combo
@@ -56,15 +56,25 @@ console.log(symbolsAsParameters); //prints => AC?/?DC
 console.log(symbolsReplacingSpace); //prints => A??C?? ??/?? ??D??C
 
 // 7. replace() //
-/*
-
-*/
+// Non-destructively replaces a part or parts of a string, with a replacement string parameter
+let sentence = "Hola senor!";
+let replace = sentence.replace("senor!", "senora.");
+console.log(replace); //prints => Hola senora.
+console.log(sentence); //prints => Hola senor!
 
 // 8. toUpperCase() and toLowerCase() //
 // Both of these methods change the case of any alphabetical characters within the string
+let title = "hope";
+let updatedCampaignStrategy = title.toUpperCase(); 
+let revised = updatedCampaignStrategy.toLowerCase();
+console.log(updatedCampaignStrategy, revised); //prints => HOPE hope
 
 // 9. trim() //
 // Removes out all whitespace that exists before and after the string's text
+let original = "      what?!      ";
+let noWhiteSpace = original.trim();
+console.log(original); // prints=>       what?!  
+console.log(noWhiteSpace) // prints=> what?!
 
 
 
