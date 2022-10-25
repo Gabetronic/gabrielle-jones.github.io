@@ -7,8 +7,9 @@
  * 1. There are a few operators that can help you re-assign strings: the assignment,
  * concatenation, and a combination of the assignment and concatenation operators.  
  * 
- * 2.  There are several functions, or methods used on strings; some take in arguments and 
- * others don't. 
+ * 2.  There are several functions, or methods used on strings; some take in parameters and 
+ * others don't.  Only a few methods are covered here: concat(), substring(), slice(), split(), 
+ * join(), replace(), toUpperCase(), toLowerCase(), and trim().
  */
 
 // 1. operators //
