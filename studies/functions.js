@@ -15,14 +15,75 @@
  * the coding environment and whether they are declared with var, let or const.
  */
 
-// 1. function declaration & 
+// 1. function declaration //
+// A function must be declared before it can be used -- declaration syntax includes:
+// keyword function functionName( //optional parameter(s) ){ //code block }
+function returnANumber(number){
+    return number;
+}
 
-/**
- * Concepts - 
- * 2 phases: declaration & invocation/calling
- * Difference btw params(are assigned) & args(are passed) / are they optional? / how are they described/written?
- * Named Func SYNTAX
- * Func Exp. def
- * Diff btw func-scoped variables, global-scoped vars: why can func-scoped modify/use parent or global, but not vice versa?
- * Def. of closure in relation to funcs
- */
+// 2. optional parameters & arguments //
+// A function can be designed to take in no parameters and pass in no arguments
+function noParameters(){
+    console.log("Flying Lotus");
+}
+
+// 3. function invocation //
+// Once declared, a function can be used by invoking, or calling it -- function call syntax includes:
+// functionName( //optional arguments passed into the function );
+returnANumber(8); // prints=> 8
+
+noParameters(); // prints=> Flying Lotus
+
+// 4. function expression //
+// Variables can hold function declarations
+let funcExpression = function comedyShow(){
+    return "A Black Lady Sketch Show";
+}
+// Because the variable is named, the function inside it is considered an anonymous function
+let anonymousFunc = (string) => {
+    return string += "thee Stallion";
+}
+
+// 5. scope //
+// A function variable's scope includes its arguments, the variables declared inside it, variables in its (optional)parent function's scope, 
+// and global variables.
+
+// Child scoped let variables declared inside a function can overshadow a parent scoped let variable.  If the child scoped
+// variable is declared with var, it will not overshadow the parent scoped let variable. 
+let lady = "Sheena"; //global variable
+var noun = "rocker"; //global variable 
+
+function song(string) {
+    const verb = "is"; //verb & genre are local parent variables
+    let genre = "metal"; // if var-declared, the child variable will not overshadow this parent variable
+        function lyric() {
+            let genre = "punk"; //local child variable
+            console.log(`${string} ${verb} a ${genre} ${noun} now.`);
+        }
+    lyric();
+}
+
+song(lady); // prints=> Sheena is a punk rocker now.
+
+// Global variables, including parent scoped variables cannot access local, or child scoped variables.
+let globalAge = 35; //global variable
+
+function intro(){
+  let parentAge = 37; //local, parent variable
+  console.log(parentAge += childAge); //prints => ReferenceError:childAge is not defined
+   function intro2(){
+    let childAge = 32; //local, child variable
+    console.log(`She is ${childAge}`);
+   }
+  intro2();
+};
+
+console.log(globalAge += childAge); //prints => ReferenceError:childAge is not defined
+intro();
+
+// 6. closure //
+
+
+
+
