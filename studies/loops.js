@@ -15,20 +15,24 @@
  */
 
 // 1. While Loops //
+// While a condition is true, loop according to the instructions provided in the code block
 let x = 2;
 let text = "";
 
-//As long as x is true -->
+//As long as x is true
 while (x) { 
-  //Add to the empty string, a new string -->
+  //Add to the empty string, a new string
   console.log(text += "all work and no play makes jack a dull boy.");
-  //Decrement at every iteration: the variable x will eventually decrement to 0, which Javascript interprets as a falsey value -->
+  //Decrement at every iteration: the variable x will eventually decrement to 0, which Javascript interprets as a falsey value
   x--;
 }
-/*  Once x = 0, the loop ends and prints => all work and no play makes jack a dull boy. all work and no play makes jack a dull boy.all work and no play makes jack a dull boy. */
+/*Once x = 0, the loop ends and prints=> 
+  all work and no play makes jack a dull boy. all work and no play makes jack a dull boy. all work and no play makes jack a 
+  dull boy. 
+*/
 
 // 2. For Loops //
-// Looping forwards over an array: //
+// Loops forwards over an array
 let nums = [1, 2, 3, 4, 5];
 let nums2 = [];
 // For these conditions --> starting condition = 0; stopping condition = nums.length; direction after each loop? = forward by 1
@@ -40,10 +44,12 @@ for(let i = 0; i < nums.length; i++){
 }
 console.log(nums, nums2); //prints=> [1, 2, 3, 4, 5] [3, 4, 5, 6, 7]
 
-// Looping backwards over an array: //
+// Also loops backwards over an array
 let letters = ["a", "b", "c", "d"]
 let letters2 = [];
-// For these conditions --> starting condition = nums.length - 1; stopping condition >= 0; direction after each loop? = backwards by 1
+/* For these conditions --> starting condition = nums.length - 1; stopping condition >= 0; direction after each loop? = backwards 
+   by 1
+*/
 for(let i = letters.length - 1; i >= 0; i--){
     //make a copy of the letters array
     let copy = [...letters];
@@ -53,16 +59,16 @@ for(let i = letters.length - 1; i >= 0; i--){
 console.log(letters, letters2); //prints=> [ 'a', 'b', 'c', 'd' ] [ 'd', 'c', 'b', 'a' ]
 
 // 3. For-in Loop //
+// Loops over an object
 let subGenres = { 1: "punk", 2: "dancehall", 3: "Bubblegum" };
 console.log(`Here are some subgenres of pop music:`);
 
-// For this condition --> every key in the object,
 for(let key in subGenres){
   //print the key/value pair with a string attached
   console.log(`${key}) ${subGenres[key]}-pop`);
 }
-/* prints => 
-
+/* 
+prints => 
 Here are some subgenres of pop music:
 1) punk-pop
 2) dancehall-pop

@@ -17,34 +17,32 @@
 // 1. if statement //
 // Provides the first condition and code block to execute if the condition evaluates to true
 console.log("Como estas?");
-
 if(x == "Monday" || x == "Tuesday"){
-    console.log("Mas o menos.");
+  console.log("Mas o menos.");
 }
 
 // 2. else-if statement //
 // This statement serves as one or multiple follow-up conditions to consider after the first condition fails
 else if(x == "Wednesday" || "Thursday"){
-    console.log("Bien, estoy buena de salud.");
+  console.log("Bien, estoy buena de salud.");
 }
 
 // 3. else statement //
 // Provides a final code block to execute if all other conditions are proven false
 else{
-    console.log("It's the weekend, I'm taking a break!");
+  console.log("It's the weekend, I'm taking a break!");
 }
 
 // 4. switch statement //
 // Provides a single statement with multiple conditions, and subsequent directions to perform
 let x = "cerulean blue";
-//the statement will evaluate the expression x, and try to match it with
+
 switch(x){
-  //each case presented --
   case "vermilion":
   case "forest green": 
-    //if matched with either of the 2 cases above, the interpreter will     print this =>
+    //if matched with either of the 2 cases above, the interpreter will print this =>
     console.log("These are half off");
-    //a break statement stops the evaluation, and points towards the         next case
+    //break statements stops the evaluation, and point towards the next case
     break;
   case "vantablack":
     console.log(`Do you mean this?`)
@@ -52,8 +50,8 @@ switch(x){
   case "cerulean blue":
     console.log("Is this it?");
     break;
-  //this serves the same purpose as the "else" statement - if all else     fails,
+  //default statements serve the same purpose as the "else" statement - if all else fails,
   default:
-    //print this =>
+    //prints=>
     console.log("Sorry, out of stock in that color!");
 }
