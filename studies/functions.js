@@ -80,7 +80,19 @@ console.log(globalAge += childAge); //prints => ReferenceError:childAge is not d
 intro();
 
 // 6. closure //
+// Closure happens within nested functions: the inner functions always have access to the variables in the parent scope, 
+// including parameters. When the outer function is invoked, whatever arguments passed to it also pass to the inner function, 
+// making this inner function an accessible and reusable entity that holds onto the information from its outer function.
+function returningMember(string){
+    return function bandMembers(){
+      return string += "AJ, Howie, & Nick";
+    }
+}
+let welcomeBack = returningMember("Kevin, ");
+console.log(welcomeBack());//prints => Kevin, AJ, Howie, & Nick
 
+let hiAgain = returningMember("Brian, ")
+console.log(hiAgain());//prints => Brian, AJ, Howie, & Nick
 
 
 
