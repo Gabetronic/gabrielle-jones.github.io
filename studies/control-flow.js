@@ -21,11 +21,13 @@ console.log("Como estas?");
 if(x == "Monday" || x == "Tuesday"){
     console.log("Mas o menos.");
 }
+
 // 2. else-if statement //
 // This statement serves as one or multiple follow-up conditions to consider after the first condition fails
 else if(x == "Wednesday" || "Thursday"){
     console.log("Bien, estoy buena de salud.");
 }
+
 // 3. else statement //
 // Provides a final code block to execute if all other conditions are proven false
 else{
