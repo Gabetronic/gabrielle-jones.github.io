@@ -44,13 +44,15 @@ function dominantDirection(string) {
       }
     }else{
       rtl.push(script);
-
+// Is there a way you can simplify this conditional chain?
     }
   }
   if(ltr.length > rtl.length){
     return "ltr";
   }else{
     return "rtl";
+  // Is there a way you can simplify this conditional chain?
+    //return the result of testing this condition...
   }
 }
 /* helper func from helpers.js --
