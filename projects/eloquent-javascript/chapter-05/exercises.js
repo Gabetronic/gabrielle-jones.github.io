@@ -26,9 +26,46 @@ function every() {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
-/*doing this in class! */
+function dominantDirection(string) {
+//keep track of how many ltr vs rtl chars there are
+  //Initialize empty array variables to store these chars by ltr & rtl
+  let ltr = [];
+  let rtl = [];
+  //Iterate through string
+  for(let i = 0; i < string.length; i++){
+    //access every char code:
+    let code = string.charCodeAt(i);
+    //Initialize a variable to the result of the helper func invocation
+    let script = characterScript(code);
+    //Need to return the script, if no script will return null. So,
+    if(script != null){
+      if(script.direction === "ltr"){
+        ltr.push(script);
+      }
+    }else{
+      rtl.push(script);
+
+    }
+  }
+  if(ltr.length > rtl.length){
+    return "ltr";
+  }else{
+    return "rtl";
+  }
 }
+/* helper func from helpers.js --
+
+function characterScript(code) {
+  for (let script of SCRIPTS) {
+    if (script.ranges.some(([from, to]) => {
+        return code >= from && code < to;
+      })) {
+      return script;
+    }
+  }
+  return null;
+}
+*/
 
 // /////////////////////////////////////////////////////////////////////////////
 //  //////////////////////////////////////////////////////

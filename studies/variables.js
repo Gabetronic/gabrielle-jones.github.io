@@ -54,8 +54,7 @@ let fruit = "apples";
 fruit = "bananas" //re-assignment
 console.log(fruit); //prints => bananas
 
-let fruit; //re-declaration
-console.log(fruit); //prints => SyntaxError: Identifier 'fruit' has already been declared
+let fruit; //prints => SyntaxError: Identifier 'fruit' has already been declared
 
 // 6. const keyword //
 // The const keyword only allows its variable to be initialized
