@@ -122,11 +122,27 @@ var range = function(x, y, arr = []) {
 // 8^2 = 8 x 8 = 64.  Here, 8 is the base and 2 is the exponent.
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp) {
+
+  var exponent = function(base, exp) {
+    //Initialize a variable to a boolean false, to be changed later depending on exp being neg or pos
+    let negativeQ = false;
+
+    //base -- if exp is a negative num
+    if (exp < 0) {
+      negativeQ = true;
+      //make it positive: -num * -1 = num
+      exp *= -1;
+    }
+    // base^0 is always = 1
+    if (exp === 0){
+      return 1;
+    }
+
+    //recursive bit --- when all else is resolved, 
+    var result = base * exponent(base, exp - 1);
+    //if num is negativeQ, divide result of func call by 1 & return it, else return result
+    return negativeQ ? 1/result : result;
 };
-
-
-
 
 
 // 8. Determine if a number is a power of two.
@@ -134,6 +150,16 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  //base --- if n is 0, OR if the remainder of n isn't 0, then it's false
+  if(n === 0 || !n % 2 !== 0){
+    return false;
+  // if n = 1, return true
+  }else if(n === 1){
+    return true;
+  }
+  
+  //recursion -- find & return the power of 2;
+  return powerOfTwo(n/2);
 };
 
 // 9. Write a function that accepts a string a reverses it.
@@ -182,7 +208,27 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
-  // x
+  let negative = false;
+  if (x < 0) {
+    negative = !negative;
+    x = -x;
+  }
+
+  if (y < 0) {
+    negative = !negative;
+    y = -y;
+  }
+
+  if (y === 1){
+    return x;
+  } 
+
+  if (y === 0 || x === 0){
+    return 0;
+  } 
+
+let result = x + multiply(x, y - 1);
+return negative ? -result : result;
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -222,25 +268,29 @@ var compareStr = function(str1, str2) {
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str, arr = []){
-  //base
-  if(str.length === 0){
-    return;
+var createArray = function(str){
+  //base -- if 1 item in string left
+  if(str.length === 1){
+    //return that 1 char into an empty arr
+    return [str[0]];
   }
 
-  //recursion
-  //slice last char off string & push it to an empty arr. return rest
-  
-  return createArray(str.substring(0, str.length - 2)) + arr.push(str.slice(str.length - 2, str.length - 1));
-  
-// str = exam:  func(exa) + arr.push(m) 
-
+  //recursion -- slice char off string & push it to an default param 
+  let result = createArray(str.slice(1)); 
+  //push reverses the string, use .unshift; then return the result
+  result.unshift(str[0]);
+  return result;
 };
 
-
-
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function(array){
+  if(array.length === 1){
+    return [array[0]];
+  }
+  let result = reverseArr(array.slice(1)); 
+  //.push reverses the array's first element into result, then return the result
+  result.push(array[0]);
+  return result;
 };
 
 // 18. Create a new array with a given value and length.
@@ -507,6 +557,4 @@ if ((typeof process !== 'undefined') &&
     binarySearch,
     mergeSort,
   };
-}
-
-//-----------------------------------
+};
