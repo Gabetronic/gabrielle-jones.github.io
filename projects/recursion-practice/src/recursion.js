@@ -5,7 +5,7 @@
 // Example:  5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5);  // 120
 
-var factorial = function(n) {
+var factorial = function(n){
   //base: if iteration reaches 0, stop at 1 (b/c factorial stops at 1, not 0)
   if(n === 0){
     return 1;
@@ -123,18 +123,18 @@ var range = function(x, y, arr = []) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 
-  var exponent = function(base, exp) {
+  var exponent = function(base, exp){
     //Initialize a variable to a boolean false, to be changed later depending on exp being neg or pos
     let negativeQ = false;
 
     //base -- if exp is a negative num
-    if (exp < 0) {
+    if(exp < 0){
       negativeQ = true;
       //make it positive: -num * -1 = num
       exp *= -1;
     }
     // base^0 is always = 1
-    if (exp === 0){
+    if(exp === 0){
       return 1;
     }
 
@@ -149,7 +149,7 @@ var range = function(x, y, arr = []) {
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-var powerOfTwo = function(n) {
+var powerOfTwo = function(n){
   //base --- if n is 0, OR if the remainder of n isn't 0, then it's false
   if(n === 0 || !n % 2 !== 0){
     return false;
@@ -163,7 +163,7 @@ var powerOfTwo = function(n) {
 };
 
 // 9. Write a function that accepts a string a reverses it.
-var reverse = function(string) {
+var reverse = function(string){
 //base
   if(string === ""){
     return "";
@@ -214,16 +214,16 @@ var multiply = function(x, y) {
     x = -x;
   }
 
-  if (y < 0) {
+  if(y < 0){
     negative = !negative;
     y = -y;
   }
 
-  if (y === 1){
+  if(y === 1){
     return x;
   } 
 
-  if (y === 0 || x === 0){
+  if(y === 0 || x === 0){
     return 0;
   } 
 
@@ -250,7 +250,7 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 
-var compareStr = function(str1, str2) {
+var compareStr = function(str1, str2){
 // base - 
   //if length of both is 0, return true 
   if(str1.length === 0 && str2.length === 0){ 
@@ -296,18 +296,50 @@ var reverseArr = function(array){
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = function(value, length){
+  //base -- stop iterating if length is 0
+  if(length === 0){
+   return [];
+ } 
+ //let list = [];
+ //recursion -- need to return the length - 1 to get to the stopping position; also need to ret new array
+ let list = buildList(value, length - 1);
+ //for each iteration, push the value param into arr & then return arr + func
+ list.push(value);
+ return list;
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value){
+  //base --- if array's length = 0, stop looping
+  if(array.length === 0){
+    return 0;
+  }
+  //recursion --- if the 0 index value = the value param, 
+  if(array[0] === value){
+    //add 1 to the return tally + continue looping
+      //use .slice to return the rest of the arr 
+    return countOccurrence(array.slice(1, array.length), value) + 1;
+  }
+  //if array[0] !-- value, keep looping without adding to the tally
+  return countOccurrence(array.slice(1, array.length), value);
 };
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
-var rMap = function(array, callback) {
+var rMap = function(array, callback){
+  //if arr param's length = 0, stop
+  if(array.length === 0){
+    return [];
+  }
+  //Initialize a variable to the recursive func call
+  let transformed = rMap(array.slice(1, array.length), callback);
+  //for each callback func call on arr element, deposit into arr, starting at 0 index
+  transformed.unshift(callback(array[0]));
+  //return the recursive func/looped arr
+  return transformed;
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
@@ -342,19 +374,53 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {
+var nthFibo = function(n){
+//should return the arr element at the nth index in sequence:
+  //base --- if n = 0. no loops required, ret 0
+  if(n === 0){
+    return 0;
+  } 
+  //Fib sequence moves forward, if 1(at the 1 index), ret 1
+  if(n === 1){
+    return 1;
+  }
+  //"return null for any negative integers"
+  if(n < 0){
+    return null;
+  }
+  //recursion --
+    //Fib seq moves forward by adding the last 2, so recursive call should take off 1 from n & then take off 2 & add them to test next
+  return nthFibo(n-1) + nthFibo(n-2);
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input) {
+var capitalizeWords = function(input){
+    //base -- stop iterating if length is 0
+    if(input.length === 0){
+      return [];
+    } 
+    //recursion -- func call should return a decrementing array.length to stop looping at 0
+    let arr = capitalizeWords(input.slice(1, input.length));
+    //for each iteration, deposit the array[0] w/ upperCase into arr & then return arr
+    arr.unshift(input[0].toUpperCase());
+    return arr;
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
-var capitalizeFirst = function(array) {
-};
+var capitalizeFirst = function(array){
+  //base -- stop iterating if length is 0
+  if(array.length === 0){
+    return [];
+  } 
+  //recursion -- func call should return a decrementing array.length to stop looping at 0
+  let arr = capitalizeFirst(array.slice(1, array.length));
+  //for each iteration, deposit the array[0][0] w/ upperCase into arr & then return arr
+  arr.unshift(array[0][0].toUpperCase()+ array[0].slice(1));
+  return arr;
+ };
 
 // 28. Return the sum of all even numbers in an object containing nested objects.
 // var obj1 = {
@@ -371,12 +437,50 @@ var nestedEvenSum = function(obj) {
 // 29. Flatten an array containing nested arrays.
 // Example: flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
 var flatten = function(arrays) {
-};
+  //Initialize an empty array variable
+  var arr = [];
+  //base -- if arr param's length = 0, stop looping
+  if(arrays.length === 0){
+    return [];
+  }
+//recursion -- need to add each element to each other(use concat OR spread operator)
+  for(let i = 0; i < arrays.length; i++){
+  //if element is nested -- use instanceof operator
+    if(arrays[i] instanceof Array){
+    //use spread operator to push  each nested element into new arr, creating 1 whole array
+      arr.push(...flatten(arrays[i]));
+    //if not nested, still push but no func call necessary
+    }else{
+      arr.push(arrays[i]);
+    }
+  }
+  //return new array
+  return arr;
+}
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
-};
+var letterTally = function(str, obj = {}) { // <= default param
+  //base -- if string param's length = 0, stop looping
+  if (str.length === 0){
+    return obj;
+  }
+  //recursion -- for every func call, return the string - 1st letter
+  letterTally(str.slice(1), obj);
+  /*
+  str = "potato" => if no key/value(key being the 1st letter of the string input) pair in obj, make one using 1 as it's value. Add pairs to default param 
+  no "p"? -> add p: 1, no "o"? add o: 1, no "t", add t: 1, no a? add a: 1, no t? yes, add 1 to t:1, no o? yes, add 1 to o: 1
+  */
+  //if key's first element in obj = undefined, start a tally of 1
+  if (obj[str[0]] === undefined) {
+    obj[str[0]] = 1;
+  //else, add to the tally
+  } else {
+    obj[str[0]] += 1;
+  }
+  //return obj w/ tallies
+  return obj;
+}
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
 // elements they should be replaced with a single copy of the element. The order of the
