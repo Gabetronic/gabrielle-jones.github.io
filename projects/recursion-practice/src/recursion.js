@@ -488,6 +488,17 @@ var letterTally = function(str, obj = {}) { // <= default param
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
 var compress = function(list) {
+  //base -- if length = 0, return empty array
+  if (list.length === 0){
+    return [];
+  }
+let output = compress(list.slice(1));
+  //recursion -- if first element doesn't equal the func call's first element, use unshift to push first element into arr
+  if (list[0] !== output[0]) {
+    output.unshift(list[0]);
+  }
+  //return new array
+  return output;
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
@@ -500,6 +511,18 @@ var augmentElements = function(array, aug) {
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
 var minimizeZeroes = function(array) {
+  //base -- if length = 0, return empty array
+  if(array.length === 0){
+    return [];
+  } 
+let arr = minimizeZeroes(array.slice(1));
+  //recursion -- if either the input arr or the output arr aren't both true or false OR if the input arr !== 0, --- use xor operator
+
+  if((array[0] === 0 ^ arr[0] === 0) || array[0] !== 0){
+    //deposit the input's first element into arr
+    arr.unshift(array[0]);
+  }
+return arr;
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
@@ -507,12 +530,69 @@ var minimizeZeroes = function(array) {
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
 var alternateSign = function(array) {
-};
+//base -- if length = 0, return empty arr
+if(array.length === 0){
+  return [];
+} 
+//recursion -- create new variable to hold recursive func call -- slices input arr from first to last index
+let arr = alternateSign(array.slice(0, array.length - 1));
+//initialize a variable to input param's length
+var inputLength = array.length;
+//if input's length is even, 
+if(inputLength % 2 === 0){
+  // if the last value in input is greater than 0
+  if(array[inputLength - 1] > 0){
+    //that item should become negative
+    array[inputLength - 1] = -array[inputLength - 1];
+  }
+//else, vice versa
+}else{ 
+  if(array[inputLength - 1] < 0) {
+    array[inputLength - 1] = -array[inputLength - 1];
+  }
+}
+//push each item into new array & return it s
+arr.push(array[inputLength - 1]);
+return arr;
+}
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
 var numToText = function(str) {
+  //base -- if length - 0, return empty string
+  if(str.length === 0){
+    return "";
+  }
+
+  //recursively retrun the input sliced from 0 to last index
+  let string = numToText(str.slice(0, str.length - 1));
+  //Initialize a variable 
+let replace;
+  //Use a switch statement w/ single digits to repace num with string naming the num 
+  switch(str[str.length - 1 ]) {
+    case "1": replace = "one";
+      break;
+    case "2": replace = "two";
+      break;
+    case "3": replace = "three";
+      break;
+    case "4": replace = "four";
+      break;
+    case "5": replace = "five";
+      break;
+    case "6": replace = "six";
+      break;
+    case "7": replace = "seven";
+      break;
+    case "8": replace = "eight";
+      break;
+    case "9": replace = "nine";
+      break;
+    default: replace = str[str.length - 1];
+      break;
+  }//return the string w/ replaced num values inside it
+  return string + replace;
 };
 
 // *** EXTRA CREDIT ***
