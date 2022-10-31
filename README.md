@@ -22,7 +22,7 @@ git # gabrielle-jones.github.io
 # How to Access Directories:
 1) type cd <name of directory> 
 2) cd .. = backing into the previous directory
-
+o
 
 # How to Install Projects Using opspark tool:
 1)In terminal, type => code ~/.bashrc
