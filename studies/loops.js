@@ -8,7 +8,9 @@
  * remains true, a while loop will continue iterating. An optional statement inside the loop's code block will execute until the 
  * condition becomes false. 
  * 2. For-loops are used when we know exactly how many iterations are needed to meet the condition provided. They are often used 
- * on arrays and strings because developers generally use the .length property as a starting or stopping condition. Because 
+ * on arrays and strings because developers. A for loop is broken down into three instructions: a start statement 
+ * that defines a counting variable, a stop statement that defines the falsey condition needed to exit the loop, and an update 
+ * statement, which informs how the counting variable should behave(decrementing or incrementing by so many steps). Because 
  * for-loops traverse a length, they can be written to loop forwards or backwards.
  * 3. For-in-loops are built specifically with objects in mind: the basic function of this loop is to iterate over every property
  * in an object and execute a set of instructions. 

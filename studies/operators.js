@@ -13,37 +13,47 @@
  * 5. Unary operators only have one operand to evaluate. There are many unary operators, but this project covers only three: 
  * typeof, ! (aka logical NOT), and - (aka unary negation).
  * 6. Ternary operators evaluate three operands & can be used as an alternative to an if-else if conditional statement.
+ * 
  */
 
 // 1. assignment operators //
-// Changes the value of the right operand based on the left operand; these operators can be combined to perform two operations.
-let character = {
-    firstName: "Amy",
-    lastName: "Dunne",
-    age: 35,
-};
-
-let fullName = "Amy Elliot ";
-console.log(fullName += character.lastName); //prints=> "Amy Elliot Dunne"
-
-let divisionAssignment = 6;
-divisionAssignment /= 2;
-console.log(divisionAssignment); //prints=> 3
+// Changes the value of the right operand based on the left operand using a combination of an arithmetic & the assignment operator( = )
+var nums = 2; //assignment => 2
+nums += 18; //addition assignment => 20
+nums -= 4; //subtraction assignment => 16
+nums *= 1; //multiplication assignment => 16
+nums /= 4; //division assignment => 4
+nums %= 2; //remainder(modulus) assignment => 0
+nums **= 2; //exponentiation assignment => 0
 
 // 2. arithmetic operators //
 // Performs arithmetic on operands
-let math = 5 * 6;
-console.log(math); //prints=> 30
+let math = 7 + 2; //addition
+math = 9 - 4; //subtraction   
+math = 16 * 2; //multiplication 
+math = 15 / 6; //division 
+math = 16 % 2; //remainder(modulus) 
+math = 6 ** 2; //exponentiation 
+math++; //increment
+math--; //decrement
 
 // 3. comparison operators //
 // Returns the result of comparing its two operands
-let x = 34, y = null;
-console.log(2 === "2", y === y, x == "34", 2 !=="2", x == 33); //prints false true true true false
-console.log(character.age >= 40); //prints=> false
+let compare = true == "true"; //equal to
+compare = 2 === "2"; //strictly equals
+compare = 2 !=="2"; //not equal to
+compare = "print" !== "prent"; //strictly not equal to
+compare = true > false; //greater than
+compare = 3 < 6; //less than
+compare = 0 >= -14; //greater than or equal to
+console.log(compare = 12 <= 12); //less than or equal to,  prints => true
 
 // 4. logical operators //
 // Determines the logic between its two operands
-console.log(typeof x && typeof math  === "number"); //prints=> true
+let stringName = "Amy";
+console.log(math < 2 || math >= 0); //logical or, prints => true
+console.log(!stringName == "Amy");//logical not, prints => false
+console.log(typeof compare && typeof math  === "number");//logical and, prints => true
 
 // 5. unary operators: typeof //
 /* Returns a string that describes the type of data value of the operand.  It is limited in its ability to distinguish between 

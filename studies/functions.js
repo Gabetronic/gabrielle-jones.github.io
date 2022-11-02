@@ -27,7 +27,15 @@ function returnANumber(number){
     return number;
 }
 
-// 2. optional parameters & arguments //
+// 2. parameters and arguments
+//Parameters are named input placeholders used during the declaration stage -- they describe arguments
+function declarationDemo(stringOfNumbers, character, number){ // <= parameters in parentheses
+    alert("demo!");
+}
+
+// Arguments are the real values passed into the function as input during the invocation stage
+declarationDemo("2468", "m", 1827); // <= arguments in parentheses
+
 // A function can be designed to take in no parameters and pass in no arguments
 function noParameters(){
     console.log("Flying Lotus");

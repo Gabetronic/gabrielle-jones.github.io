@@ -12,8 +12,12 @@
  * 2. Var, let and const are keywords required to create variables.  They each have varying traits, but must be written before 
  * the actual variable name itself.  A var variable can be declared without a data value attached, and it can be both re-declared 
  * and re-assigned. Let variables can be re-assigned, but not re-declared. Once initialized, constant or const variables can't 
- * be re-assoigned or re-declared.
- * 3. Hoisting is a JavaScript engine trait that moves, or "compiles," & then reads, or "interprets" both variable & function 
+ * be re-assigned or re-declared.
+ * 3. In terms of where the JavaScript interpreter can access variables, the three keywords described above, are accessible in 
+ * different ways. This ability to be seen is referred to as scope.  While var has global scope, let and const are block-scoped: 
+ * in other words, the JS interpreter can view var variables anywhere in the program; let and const variablescan only been "seen" 
+ * within the code block that they are declared in.
+ * 4. Hoisting is a JavaScript engine trait that moves, or "compiles," & then reads, or "interprets" both variable & function 
  * declarations at the top of a program before any other code.  Once at the top of the program, a var variable's value will be 
  * interpreted as the undefined data value; its actual value(s) will be read later once the JS engine arrives (the JS engine 
  * reads from top to bottom, left to right) at that particular variable within the rest of the code. By hoisting function 
@@ -65,8 +69,24 @@ console.log(muhammadAli); //prints => TypeError: Assignment to constant variable
 const bandName;
 console.log(bandName); //prints => SyntaxError: Missing initializer in const declaration
 
+// 7. scope //
+/* Var has global scope, it can be seen anywhere; while let & const are block scoped -- only seen in the context of the code
+block they are created in
+*/
+var seenGlobally = 1819;
 
-// 7. hoisting //
+function demoPrint(){
+    let seenGlobally = "18";
+    const BlockScopedToo = 456;
+  
+    console.log(seenGlobally); 
+}
+demoPrint(); //prints => 18
+
+console.log(seenGlobally); //prints => 1819
+console.log(BlockScopedToo); //=> Reference Error: BlockScopedToo is not defined
+
+// 8. hoisting //
 /* Hoisting causes var variables to be temporarily rendered to the value of undefined, until their initialization is read later. 
 Hoisting also allows function calls to be read anywhere in the program.
 */
